@@ -16,11 +16,11 @@ public class ReviewsFullController {
 	@Resource
 	private CategoryRepository categoryRepo;
 
-	@RequestMapping(value = "reviews")
-	public String getAllReviews(Model model) {
-		model.addAttribute("reviews", reviewRepo.findAll());
-		return "reviews";
-	}
+//	@RequestMapping(value = "reviews")
+//	public String getAllReviews(Model model) {
+//		model.addAttribute("reviews", reviewRepo.findAll());
+//		return "reviews";
+//	}
 
 	@RequestMapping("review")
 	public String getAReview(@RequestParam Long id, Model model) {
@@ -28,7 +28,7 @@ public class ReviewsFullController {
 		return "review";
 	}
 
-	@RequestMapping("genres")
+	@RequestMapping(value = "genres")
 	public String getAllCategories(Model model) {
 		model.addAttribute("genres", categoryRepo.findAll());
 		return "genres";

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<mvc:resources mapping="/resources/**" location="/resources/" />
+
+<head>
+
+<title>Genres</title>
+</head>
+
+<body>
+
+	<header>
+		<h1>Musical Genres</h1>
+	</header>
+	<div>
+<Section>
+
+<h2>Genres:</h2>
+<ul th:each="category: ${genres}">
+					<em><li><a th:href="@{/category(id=${category.id})}"
+							th:text="${category.category}" /></li></em>
+				</ul>
+
+
+
+</Section>
+</div>
+
+</body>
+</html>
