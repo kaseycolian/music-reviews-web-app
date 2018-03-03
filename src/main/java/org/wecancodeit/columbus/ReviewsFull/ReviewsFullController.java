@@ -36,7 +36,9 @@ public class ReviewsFullController {
 
 	@RequestMapping("category")
 	public String getACategory(@RequestParam Long id, Model model) {
-		model.addAttribute("genres", categoryRepo.findOne(id));
+		Category category = categoryRepo.findOne(id);
+		model.addAttribute("category", category);
+		model.addAttribute("reviews", reviewRepo.findByCategory(category));
 		return "category";
 
 	}

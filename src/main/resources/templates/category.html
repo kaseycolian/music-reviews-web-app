@@ -4,16 +4,24 @@
 
 <head>
 
-<title th:each="category: ${genres}" th:text="${category.category}" />
+<title>Reviews Per Genre</title>
 </head>
 
 
 <body>
 <header>
-
-<h1 th:each="category: ${genres}" th:text="${category.id}" />
-
+<h1 th:text="${category.category} + ' Reviews:'"></h1>
 </header>
+<Section>
+
+<ul th:each="review : ${reviews}">
+<li><a th:href="@{/review(id=${review.id})}" 
+th:text="${review.id}"></a></li>
+</ul>
+
+</Section>
+
+
 
 </body>
 </html>
