@@ -11,20 +11,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ReviewsFullController {
 
 	@Resource
-	ReviewsRepository reviewRepo;
+	private ReviewsRepository reviewRepo;
 
 	@Resource
-	CategoryRepository categoryRepo;
+	private CategoryRepository categoryRepo;
 
 	@RequestMapping(value = "reviews")
-	public void getAllReviews(Model model) {
+	public String getAllReviews(Model model) {
 		model.addAttribute("reviews", reviewRepo.findAll());
+		return "reviews";
 	}
 
 	@RequestMapping("review")
 	public String getAReview(@RequestParam Long id, Model model) {
-		model.addAttribute("reviews", reviewRepo.findOne(id));
+		model.addAttribute("review", reviewRepo.findOne(id));
 		return "review";
+	}
+
+	@RequestMapping("genres")
+	public String getAllCategories(Model model) {
+		model.addAttribute("genres", categoryRepo.findAll());
+		return "genres";
+	}
+
+	@RequestMapping("genre")
+	public String getACategory(@RequestParam Long id, Model model) {
+		model.addAttribute("genres", categoryRepo.findOne(id));
+		return "genre";
+
 	}
 
 }

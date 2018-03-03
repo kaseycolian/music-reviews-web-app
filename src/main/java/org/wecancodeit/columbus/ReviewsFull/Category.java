@@ -20,6 +20,10 @@ public class Category {
 	
 	@OneToMany (mappedBy="category")
 	private Collection<Review> reviews;
+	
+	public Collection<Review> getReviews() {
+		return reviews;
+	}
 	public long getId() {
 		return id;
 	}
@@ -31,9 +35,6 @@ public class Category {
 		return category;
 	}
 
-	public Collection<Review> getReviews() {
-		return reviews;
-	}
 	@SuppressWarnings ("unused")
 	private Category() {
 		

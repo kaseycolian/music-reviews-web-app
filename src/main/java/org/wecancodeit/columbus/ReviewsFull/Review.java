@@ -15,19 +15,19 @@ public class Review {
 	private String name;
 	private String imageUrl;
 
-	public String getContent() {
-		return content;
-	}
-
-	@ManyToOne
-	private Category category;
-
 	@Lob
 	private String content;
 	private String firstRelease;
 	private String lastRelease;
 	private String youTubeUrl;
 	private String footerUrl;
+
+	@ManyToOne
+	private Category category;
+
+	public String getContent() {
+		return content;
+	}
 
 	public long getId() {
 		return id;
@@ -60,15 +60,15 @@ public class Review {
 		return footerUrl;
 	}
 
-	public Review(String name, String content, String url, Category category, String firstRelease, String lastRelease, String youTubeUrl, String footerUrl) {
+	public Review(String name,  String url,  Category category, String content,String footerUrl, String firstRelease, String lastRelease, String youTubeUrl) {
 		this.name = name;
-		this.content = content;
-		this.category = category;
 		this.imageUrl = url;
+		this.category = category;
+		this.content = content;
+		this.footerUrl = footerUrl;
 		this.firstRelease = firstRelease;
 		this.lastRelease = lastRelease;
 		this.youTubeUrl = youTubeUrl;
-		this.footerUrl = footerUrl;
 
 	}
 
@@ -93,10 +93,10 @@ public class Review {
 		return id == ((Review) obj).id;
 	}
 
-	public Category getGenre() {
-		// TODO Auto-generated method stub
-		return category;
-	}
+//	public Category getGenre() {
+//		// TODO Auto-generated method stub
+//		return category;
+//	}
 
 
 }

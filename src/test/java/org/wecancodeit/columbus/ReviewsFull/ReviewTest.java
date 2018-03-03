@@ -8,8 +8,8 @@ import org.junit.Test;
 public class ReviewTest {
 
 	Category category = new Category("rock");
-	Review underTest = new Review ("bert", "words", "image url" , category, "1500", "3000", "video", "footer");
-	Review underTest2 = new Review ("cat", "stuff", "images", category, "999", "111", "film", "footnote");
+	Review underTest = new Review ("bert", "words", category , "image url", "1500", "3000", "video", "footer");
+	Review underTest2 = new Review ("cat", "stuff", category, "images", "999", "111", "film", "footnote");
 	@Test
 	public void shouldReturnImageUrl() {
 		String imageUrl = underTest.getImageUrl();

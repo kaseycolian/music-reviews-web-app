@@ -11,8 +11,8 @@ public class CategoryTest {
 
 	Category underTest = new Category("punk");
 	
-	Review review1 = new Review ("bert", "words", "image url" , underTest, "1500", "3000", "video", "footer");
-	Review review2 = new Review ("cat", "stuff", "images", underTest, "999", "111", "film", "footnote");
+	Review review1 = new Review ("bert", "words", underTest , "image url", "1500", "3000", "video", "footer");
+	Review review2 = new Review ("cat", "stuff", underTest, "images", "999", "111", "film", "footnote");
 	
 	
 	@Test
