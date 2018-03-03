@@ -34,10 +34,10 @@ public class ReviewsFullController {
 		return "genres";
 	}
 
-	@RequestMapping("genre")
+	@RequestMapping("category")
 	public String getACategory(@RequestParam Long id, Model model) {
 		model.addAttribute("genres", categoryRepo.findOne(id));
-		return "genre";
+		return "category";
 
 	}
 
