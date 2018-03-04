@@ -1,0 +1,97 @@
+* {
+	font-family: "Calibri", Candara, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+	max-width: 100vw;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	opacity: 1;
+	-webkit-text-stroke: .03rem #3D3C3F;
+}
+
+a:link {
+	color: #141420;
+}
+
+a:visited {
+	color: white;
+}
+
+a:hover {
+	color: #775D89;
+	font-size: 3.75rem;
+	font-weight: bold;
+}
+
+.container {
+	display: grid;
+	grid-template-rows: 15rem 1fr;
+	height: 100vh;
+	grid-gap: 1rem;
+}
+
+header:hover {
+	font-size: 9rem;
+	background-image: url(/images/stars.png);
+	margin-top: 1.25rem;
+	font-size: 7rem;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div::after {
+	content: "";
+	opacity: .55;
+	background-image: url(/images/keys2.jpg);
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	z-index: -1;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+section {
+	opacity: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 25rem;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+h1 {
+	font-family: Cambria, Georgia, serif;
+	color: grey;
+	font-size: 5rem;
+}
+
+h2 {
+	color: lightgrey;
+	font-size: 4.5rem;
+	font-style: italic;
+	-webkit-text-stroke: .05rem black;
+	
+}
+
+li {
+	color: #031A2E;
+	font-size: 3.5rem;
+	margin-left: 10rem;
+	list-style-type: none;
+	font-style: italic;
+	margin-bottom: 1rem;
+	font-weight: bold;
+}

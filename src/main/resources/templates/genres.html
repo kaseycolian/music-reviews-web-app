@@ -3,14 +3,14 @@
 <mvc:resources mapping="/resources/**" location="/resources/" />
 
 <head>
-<link rel="stylesheet" type="text/css" href="./reviewsStylesheet.css" />
+<link rel="stylesheet" type="text/css" href="./allGenresStylesheet.css" />
 <title>Genres</title>
 </head>
 
 <body>
 <div class="container">
 	<header>
-		<h1>Musical Genres</h1>
+		<h1>Music Reviews by Genres</h1>
 	</header>
 
 	<div>
@@ -18,8 +18,8 @@
 
 			<h2>Genres:</h2>
 			<ul th:each="category: ${genres}">
-				<em><li><a th:href="@{/category(id=${category.id})}"
-						th:text="${category.category}" /></li></em>
+				<li><a th:href="@{/category(id=${category.id})}"
+						th:text="${category.category}" /></li>
 			</ul>
 
 		</Section>
