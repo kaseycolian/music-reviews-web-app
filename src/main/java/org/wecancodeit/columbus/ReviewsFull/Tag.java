@@ -13,7 +13,7 @@ public class Tag {
 	@Id
 	@GeneratedValue
 	private long id;
-	private String tag;
+	private String tagDescription;
 
 	@ManyToMany(mappedBy="tags")
 	private Collection<Review> reviews;
@@ -28,12 +28,12 @@ public class Tag {
 	}
 
 	public String getTag() {
-		return tag;
+		return tagDescription;
 	}
 
 	
-	public Tag(String tag) {
-		this.tag = tag;
+	public Tag(String tagDescription) {
+		this.tagDescription = tagDescription;
 	}
 	
 	
