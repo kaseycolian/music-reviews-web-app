@@ -36,6 +36,7 @@ public class Tag {
 		this.tag = tag;
 	}
 	
+	
 	@SuppressWarnings("unused")
 	private Tag() {
 	}

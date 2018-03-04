@@ -3,7 +3,7 @@
 <mvc:resources mapping="/resources/**" location="/resources/" />
 
 <head>
-
+<link rel="stylesheet" type="text/css" href="./reviewsStylesheet.css" />
 <title>Genres</title>
 </head>
 
@@ -13,19 +13,20 @@
 		<h1>Musical Genres</h1>
 	</header>
 	<div>
-<Section>
+		<Section>
 
-<h2>Genres:</h2>
-<ul th:each="category: ${genres}">
-					<em><li><a th:href="@{/category(id=${category.id})}"
-							th:text="${category.category}" /></li></em>
-				</ul>
-			
+			<h2>Genres:</h2>
+			<ul th:each="category: ${genres}">
+				<em><li><a th:href="@{/category(id=${category.id})}"
+						th:text="${category.category}" /></li></em>
+			</ul>
 
+		</Section>
 
-
-</Section>
-</div>
+		<figure>
+			<img src="./images/keys.jpg" alt="Piano Keys" />
+		</figure>
+	</div>
 
 </body>
 </html>

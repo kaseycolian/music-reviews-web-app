@@ -1,0 +1,37 @@
+h1 {
+	font-family: Cambria, Georgia, serif;
+	color: white;
+}
+*{
+		background-color: #4A4A4A;
+	font-family: "Calibri", Candara, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+}
+
+body {
+
+}
+
+li {
+	color: #031A2E;
+}
+
+img {
+	display: block;
+	max-width: 900px;
+	max-height: 570px;
+	width: auto;
+	height: auto;
+}
+/*unvisited link*/
+a:link {
+	color: #141420;
+}
+/* visited link*/
+a:visited {
+	color: #9EABB0;
+}
+/* mouse over link*/
+a:hover {
+	color: #DE2C91;
+}

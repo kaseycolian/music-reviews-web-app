@@ -1,0 +1,48 @@
+header {
+	font-family: "Constantia", serif;
+	color: #262D40;
+	font-size: 120%;
+}
+
+body {
+	background-color: #ADADAE;
+	font-family: "Calibri", Candara, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+	color: #0E0F0F;
+}
+
+h3 {
+	font-style: italic;
+}
+
+iframe {
+	position: absolute;
+	display: block;
+	top: 130px;
+	left: 270px;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 35%;
+	max-height: 300px;
+}
+
+footer {
+	font-family: "Cambria", Georgia, serif;
+}
+
+/*unvisited link*/
+a:link {
+	color: #136183;
+}
+/* visited link*/
+a:visited {
+	color: #591B87;
+}
+/* mouse over link*/
+a:hover {
+	color: #DB1291;
+}
