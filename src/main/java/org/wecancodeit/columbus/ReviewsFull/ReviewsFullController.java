@@ -42,6 +42,7 @@ public class ReviewsFullController {
 	public String getACategory(@RequestParam Long id, Model model) {
 		Category category = categoryRepo.findOne(id);
 		model.addAttribute("category", category);
+		model.addAttribute("review", reviewRepo.findOne(id));
 		model.addAttribute("reviews", reviewRepo.findByCategory(category));
 		return "category";
 

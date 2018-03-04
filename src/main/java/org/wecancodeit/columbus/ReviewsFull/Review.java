@@ -26,14 +26,14 @@ public class Review {
 	private String lastRelease;
 	private String youTubeUrl;
 	private String footerUrl;
-
+	private String membersPic;
 
 	@ManyToOne
 	private Category category;
 
 	@ManyToMany
 	private Collection<Tag> tags;
-	
+
 	public Collection<Tag> getTags() {
 		return tags;
 	}
@@ -41,6 +41,7 @@ public class Review {
 	public Category getCategory() {
 		return category;
 	}
+
 	public String getContent() {
 		return content;
 	}
@@ -52,7 +53,6 @@ public class Review {
 	public String getName() {
 		return name;
 	}
-
 
 	public String getImageUrl() {
 		return imageUrl;
@@ -74,16 +74,21 @@ public class Review {
 		return footerUrl;
 	}
 
-	public Review(String name, String url, Category category, String content, String footerUrl, String firstRelease,
-			String lastRelease, String youTubeUrl, Tag... tags) {
+	public String getMembersPic() {
+		return membersPic;
+	}
+
+	public Review(String name, String imageUrl, Category category, String content, String footerUrl, String firstRelease,
+			String lastRelease, String youTubeUrl, String membersPic, Tag... tags) {
 		this.name = name;
-		this.imageUrl = url;
+		this.imageUrl = imageUrl;
 		this.category = category;
 		this.content = content;
 		this.footerUrl = footerUrl;
 		this.firstRelease = firstRelease;
 		this.lastRelease = lastRelease;
 		this.youTubeUrl = youTubeUrl;
+		this.membersPic = membersPic;
 		this.tags = new HashSet<>(asList(tags));
 
 	}

@@ -3,33 +3,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<link rel="stylesheet" type="text/css" href="./singleGenreStylesheet.css" />
+<link rel="stylesheet" type="text/css"
+	href="./singleGenreStylesheet.css" />
 
 <title>Reviews Per Genre</title>
 </head>
 
 
 <body>
-<div class = "container">
-<header>
-<h1 th:text="${category.category} + ' Reviews:'"></h1>
-</header>
-<section>
+	<div class="container">
+		<header>
+			<h1
+				th:text="'Reviews for musical artists of the ' + ${category.category} + ' genre'"></h1>
+		</header>
+		<section>
 
-<ul th:each="review : ${reviews}">
-<li><a th:href="@{/review(id=${review.id})}" 
-th:text="${review.name}"></a></li>
-</ul>
+			<ul th:each="review : ${reviews}">
+				<li><img th:src="${review.membersPic}" alt="Band Members" /> <a
+					th:href="@{/review(id=${review.id})}" th:text="${review.name}"></a></li>
+			</ul>
 
-</section>
+		</section>
 
-<footer>
-<h3>
-<a href="http://localhost:8080/genres">Back to home</a>
-</h3>
-</footer>
+		<footer>
+			<h3>
+				<a href="http://localhost:8080/genres">Back to home</a>
+			</h3>
+		</footer>
 
 
-</div>
+	</div>
 </body>
 </html>

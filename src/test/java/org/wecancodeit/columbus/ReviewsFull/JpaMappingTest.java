@@ -36,7 +36,9 @@ public class JpaMappingTest {
 	public void shouldSaveAndLoadNewReview() {
 		Category oneGenre = new Category("ska");
 		oneGenre = categoryRepo.save(oneGenre);
-		Review review = new Review("aa", "bb", oneGenre, "cc", "dd", "ee", "ff", "gg");
+		Tag tag1 = new Tag("nice");
+		tag1 = tagRepo.save(tag1);
+		Review review = new Review("aa", "bb", oneGenre, "cc", "dd", "ee", "ff", "gg", "hh", tag1);
 		review = reviewsRepo.save(review);
 
 		long reviewId = review.getId();
@@ -53,12 +55,14 @@ public class JpaMappingTest {
 	public void shouldSaveCategoryToReviewRelationshipOneCategoryToMany() {
 		Category oneGenre = new Category("ska");
 		categoryRepo.save(oneGenre);
+		Tag tag1 = new Tag("yay");
+		tagRepo.save(tag1);
 
 		long genreId = oneGenre.getId();
 
-		Review review1 = new Review("aa", "bb", oneGenre, "cc", "dd", "ee", "ff", "gg");
+		Review review1 = new Review("aa", "bb", oneGenre, "cc", "dd", "ee", "ff", "gg", "hh", tag1);
 		review1 = reviewsRepo.save(review1);
-		Review review2 = new Review("zz", "yy", oneGenre, "xx", "ww", "vv", "uu", "tt");
+		Review review2 = new Review("zz", "yy", oneGenre, "xx", "ww", "vv", "uu", "tt", "ss", tag1);
 		review2 = reviewsRepo.save(review2);
 
 		entityManager.flush();
@@ -79,9 +83,9 @@ public class JpaMappingTest {
 		Tag twoTag = new Tag("quiet");
 		tagRepo.save(twoTag);
 
-		Review review1 = new Review("11", "22", oneGenre, "33", "44", "55", "66", "77", oneTag, twoTag);
+		Review review1 = new Review("11", "22", oneGenre, "33", "44", "55", "66", "77", "88", oneTag, twoTag);
 		reviewsRepo.save(review1);
-		Review review2 = new Review("ab", "bc", oneGenre, "de", "fg", "hi,", "jk", "lm", oneTag);
+		Review review2 = new Review("ab", "bc", oneGenre, "de", "fg", "hi,", "jk", "lm", "no", oneTag);
 		reviewsRepo.save(review2);
 
 		entityManager.flush();
@@ -112,9 +116,9 @@ public class JpaMappingTest {
 		Tag tag1 = tagRepo.save(new Tag("amazing"));
 		long tag1Id = tag1.getId();
 
-		Review review1 = new Review("11", "22", oneGenre, "33", "44", "55", "66", "77", tag1);
+		Review review1 = new Review("11", "22", oneGenre, "33", "44", "55", "66", "77", "88", tag1);
 		reviewsRepo.save(review1);
-		Review review2 = new Review("ab", "bc", oneGenre, "de", "fg", "hi,", "jk", "lm", tag1);
+		Review review2 = new Review("ab", "bc", oneGenre, "de", "fg", "hi,", "jk", "lm", "no", tag1);
 		review2 = reviewsRepo.save(review2);
 
 		entityManager.flush();
@@ -132,9 +136,9 @@ public class JpaMappingTest {
 		Tag tag1 = tagRepo.save(new Tag("amazing"));
 		long tag1Id = tag1.getId();
 
-		Review review1 = new Review("11", "22", oneGenre, "33", "44", "55", "66", "77", tag1);
+		Review review1 = new Review("11", "22", oneGenre, "33", "44", "55", "66", "77", "88", tag1);
 		reviewsRepo.save(review1);
-		Review review2 = new Review("ab", "bc", oneGenre, "de", "fg", "hi,", "jk", "lm", tag1);
+		Review review2 = new Review("ab", "bc", oneGenre, "de", "fg", "hi,", "jk", "lm","no", tag1);
 		review2 = reviewsRepo.save(review2);
 
 		entityManager.flush();

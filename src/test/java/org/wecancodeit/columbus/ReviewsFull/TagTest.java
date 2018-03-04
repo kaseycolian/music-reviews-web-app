@@ -1,11 +1,7 @@
 package org.wecancodeit.columbus.ReviewsFull;
 
-import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-
-import java.util.Collection;
-
 import javax.annotation.Resource;
 
 import org.junit.Test;
@@ -20,8 +16,8 @@ public class TagTest {
 	
 	Category category = new Category("jazz");
 
-	Review review1 = new Review("a", "b", category, "c", "d", "e", "f", "g", underTest, underTest2);
-	Review review2 = new Review("z", "y", category, "q", "r", "s", "t", "u", underTest2);
+	Review review1 = new Review("a", "b", category, "c", "d", "e", "f", "g", "h", underTest, underTest2);
+	Review review2 = new Review("z", "y", category, "q", "r", "s", "t", "u", "v", underTest2);
 	
 	@Test
 	public void shouldReturnTagDescription() {

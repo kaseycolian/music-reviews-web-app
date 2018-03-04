@@ -34,6 +34,9 @@ public class ReviewsFullControllerTest {
 	private ReviewsRepository reviewRepo;
 	
 	@Mock
+	private TagRepository tagRepo;
+	
+	@Mock
 	private Model model;
 	
 	@Mock
@@ -50,6 +53,9 @@ public class ReviewsFullControllerTest {
 	
 	@Mock
 	Iterable<Category> allGenres;
+	
+	@Mock
+	Iterable<Tag> tags;
 	
 	@Before
 	public void setup() {
