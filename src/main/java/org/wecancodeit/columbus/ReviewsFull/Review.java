@@ -1,9 +1,14 @@
 package org.wecancodeit.columbus.ReviewsFull;
 
+import java.util.Collection;
+import java.util.HashSet;
+import static java.util.Arrays.asList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -22,9 +27,20 @@ public class Review {
 	private String youTubeUrl;
 	private String footerUrl;
 
+
 	@ManyToOne
 	private Category category;
 
+	@ManyToMany
+	private Collection<Tag> tags;
+	
+	public Collection<Tag> getTags() {
+		return tags;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
 	public String getContent() {
 		return content;
 	}
@@ -37,9 +53,6 @@ public class Review {
 		return name;
 	}
 
-	public Category getCategory() {
-		return category;
-	}
 
 	public String getImageUrl() {
 		return imageUrl;
@@ -56,11 +69,13 @@ public class Review {
 	public String getYouTubeUrl() {
 		return youTubeUrl;
 	}
+
 	public String getFooterUrl() {
 		return footerUrl;
 	}
 
-	public Review(String name,  String url,  Category category, String content,String footerUrl, String firstRelease, String lastRelease, String youTubeUrl) {
+	public Review(String name, String url, Category category, String content, String footerUrl, String firstRelease,
+			String lastRelease, String youTubeUrl, Tag... tags) {
 		this.name = name;
 		this.imageUrl = url;
 		this.category = category;
@@ -69,6 +84,7 @@ public class Review {
 		this.firstRelease = firstRelease;
 		this.lastRelease = lastRelease;
 		this.youTubeUrl = youTubeUrl;
+		this.tags = new HashSet<>(asList(tags));
 
 	}
 
@@ -92,11 +108,5 @@ public class Review {
 		}
 		return id == ((Review) obj).id;
 	}
-
-//	public Category getGenre() {
-//		// TODO Auto-generated method stub
-//		return category;
-//	}
-
 
 }

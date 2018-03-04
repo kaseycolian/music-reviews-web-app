@@ -24,7 +24,7 @@ public class CategoryTest {
 	
 	@Test
 	public void shouldReturnId() {
-	Long id = review2.getId();
+	Long id = underTest.getId();
 	assertThat(id, is(0L));
 			
 	}

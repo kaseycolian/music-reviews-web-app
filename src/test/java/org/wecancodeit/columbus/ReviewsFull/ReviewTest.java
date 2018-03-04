@@ -6,9 +6,10 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 public class ReviewTest {
-
+	Tag tag1 = new Tag("quiet");
+	Tag tag2 = new Tag("loud");
 	Category category = new Category("rock");
-	Review underTest = new Review ("bert", "words", category , "image url", "1500", "3000", "video", "footer");
+	Review underTest = new Review ("bert", "words", category , "image url", "1500", "3000", "video", "footer", tag1, tag2);
 	Review underTest2 = new Review ("cat", "stuff", category, "images", "999", "111", "film", "footnote");
 	@Test
 	public void shouldReturnImageUrl() {
@@ -59,5 +60,10 @@ public class ReviewTest {
 		Category category = underTest.getCategory();
 		assertThat(category, is("rock"));
 		
+	}
+	@Test
+	public void shouldReturnTags() {
+		Review underTest = underTest.getTags();
+		assertThat(tag1, is("loud"));
 	}
 }
