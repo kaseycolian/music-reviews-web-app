@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
-
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Krona+One');
 
 * {
 	max-width: 100vw;
@@ -9,10 +7,12 @@
 	padding: 0;
 	opacity: 1;
 	-webkit-text-stroke: .001rem #1B212B;
+	font-family: 'Krona One', sans-serif;
 }
 
 a:link {
-	color: #141420;
+	color: #76818d;
+	text-decoration: none;
 }
 
 a:visited {
@@ -20,14 +20,15 @@ a:visited {
 }
 
 a:hover {
-	color: darkgrey;
-	font-size: 3.75rem;
+	color: #314457;
+	font-size: 3.8rem;
 	font-weight: bold;
+	font-style: italic;
 }
 
 .container {
 	display: grid;
-	grid-template-rows: 18rem 1fr;
+	grid-template-rows: 16rem 1fr;
 	height: 100vh;
 	grid-gap: 1rem;
 }
@@ -67,30 +68,26 @@ section {
 	justify-content: center;
 	align-items: flex-start;
 	margin-left: 22rem;
-	font-family: 'Ubuntu', sans-serif;
-}
-
-a:link {
-	text-decoration: none;
 }
 
 h1 {
 	color: lightgrey;
-	font-size: 5rem;
+	font-size: 4.5rem;
 }
 
 h2 {
 	color: lightgrey;
-	font-size: 4.3rem;
-	font-style: italic;
+	font-size: 4rem;
+	margin-bottom: 1.75rem;
 }
 
 li {
 	color: grey;
-	font-size: 4rem;
-	margin-left: 12rem;
+	font-size: 3.75rem;
+	margin-left: 14rem;
 	list-style-type: none;
-	font-style: italic;
+	font-style: none;
 	margin-bottom: 1rem;
 	font-weight: bold;
+	margin-bottom: 1rem;
 }
