@@ -17,10 +17,12 @@
 			<section>
 
 				<h2>Genres:</h2>
-				<ul th:each="category: ${genres}">
-					<li><a th:href="@{/category(id=${category.id})}"
-						th:text="${category.category}" /></li>
-				</ul>
+				<h2>
+					<ul th:each="category: ${genres}">
+						<li><a th:href="@{/category(id=${category.id})}"
+							th:text="${category.category}" /></li>
+					</ul>
+				</h2>
 
 			</section>
 
