@@ -10,14 +10,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ui.Model;
 
-import static org.hamcrest.Matchers.containsInAnyOrder;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Arrays;
-import java.util.Collection;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
@@ -51,7 +49,7 @@ public class ReviewsFullControllerTest {
 
 	@Mock
 	private Category twoGenre;
-	
+
 	@Mock
 	private Tag oneTag;
 
@@ -72,13 +70,13 @@ public class ReviewsFullControllerTest {
 		underTest.getAReview(id, model);
 		verify(model).addAttribute("review", oneReview);
 	}
-	
+
 	@Test
 	public void shouldGetASingleGenreModel() {
 		when(categoryRepo.findOne(id)).thenReturn(oneGenre);
 		underTest.getACategory(id, model);
 		verify(model).addAttribute("category", oneGenre);
-			
+
 	}
 
 	@Test
@@ -87,7 +85,7 @@ public class ReviewsFullControllerTest {
 		underTest.getAllCategories(model);
 		verify(model).addAttribute("genres", allGenres);
 	}
-	
+
 	@Test
 	public void shouldAddASingleTagToModel() {
 		when(tagRepo.findOne(id)).thenReturn(oneTag);

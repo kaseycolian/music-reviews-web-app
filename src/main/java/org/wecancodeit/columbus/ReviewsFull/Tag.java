@@ -15,10 +15,9 @@ public class Tag {
 	private long id;
 	private String tagDescription;
 
-	@ManyToMany(mappedBy="tags")
+	@ManyToMany(mappedBy = "tags")
 	private Collection<Review> reviews;
 
-		
 	public Collection<Review> getReview() {
 		return reviews;
 	}
@@ -31,16 +30,14 @@ public class Tag {
 		return tagDescription;
 	}
 
-	
 	public Tag(String tagDescription) {
 		this.tagDescription = tagDescription;
 	}
-	
-	
+
 	@SuppressWarnings("unused")
 	private Tag() {
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return ((Long) id).hashCode();

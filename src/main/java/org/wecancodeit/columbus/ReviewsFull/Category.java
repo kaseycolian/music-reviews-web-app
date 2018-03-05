@@ -7,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
-
 @Entity
 public class Category {
 
@@ -16,34 +14,36 @@ public class Category {
 	@GeneratedValue
 	private long id;
 	private String category;
-	
-	
-	@OneToMany (mappedBy="category")
+
+	@OneToMany(mappedBy = "category")
 	private Collection<Review> reviews;
-	
+
 	public Collection<Review> getReviews() {
 		return reviews;
 	}
+
 	public long getId() {
 		return id;
 	}
-	@Override 
-	public String toString(){
+
+	@Override
+	public String toString() {
 		return category;
 	}
 
 	public Category(String category) {
 		this.category = category;
 	}
+
 	public String getCategory() {
 		return category;
 	}
 
-	@SuppressWarnings ("unused")
+	@SuppressWarnings("unused")
 	private Category() {
-		
+
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return ((Long) id).hashCode();
@@ -61,7 +61,5 @@ public class Category {
 
 		return id == ((Category) obj).id;
 	}
-	
-	
-	
+
 }

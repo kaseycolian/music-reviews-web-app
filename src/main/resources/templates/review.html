@@ -12,18 +12,21 @@
 <body>
 	<div class="container">
 		<header>
-
-			<h1 th:text="${review.name} + ' Review:'" />
+			<h1 th:text="${review.name} + ' Review'" />
 		</header>
 
 		<section>
-			<h3 th:text="'Genre: ' + ${review.category.category}" />
-			<h4
-				th:text="'Year of first studio release: ' + ${review.firstRelease}" />
-			<h4 th:text="'Year of last studio release: ' + ${review.lastRelease}" />
+			<div class="dates">
+				<h3 th:text="'Genre: ' + ${review.category.category}" />
+				<h4
+					th:text="'Year of first studio release: ' + ${review.firstRelease}" />
+				<h4
+					th:text="'Year of last studio release: ' + ${review.lastRelease}" />
+			</div>
 
-			<iframe th:src="${review.youTubeUrl}"> </iframe>
-
+					<div class="video">
+						<iframe th:src="${review.youTubeUrl}"> </iframe>
+</div>
 		</section>
 
 		<article>
@@ -31,12 +34,13 @@
 			<p th:text="${review.content}" />
 			<a th:href="${review.footerUrl}">[1] Reference Link</a> <img
 				th:src="${review.imageUrl}" alt="Band logo" />
-				<h3>Tags</h3>
-			<ul th:each="tag: ${review.tags}"><li th:text="${tag.getTag()}"/></ul>
+			<h3>Tags</h3>
+			<ul th:each="tag: ${review.tags}">
+				<li th:text="${tag.getTag()}" />
+			</ul>
 		</article>
 
 		<footer>
-			<br></br>
 			<h4>
 				<a href="http://localhost:8080/genres">Back to home</a>
 			</h4>

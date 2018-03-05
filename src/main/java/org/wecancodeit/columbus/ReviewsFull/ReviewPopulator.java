@@ -29,7 +29,7 @@ public class ReviewPopulator implements CommandLineRunner {
 
 		Review review1 = new Review("Aphex Twin", "./images/aphexTwin.jpg", idm,
 				"The sound of Aphex Twin is more intense, with a beat that can drive concentration.  According to Wikipedia: 'Richard David James (born 18 August 1971), best known by his recording alias Aphex Twin, is a Cornish (English) electronic musician, known for his influential and idiosyncratic work in styles such as ambient techno and IDM in the 1990s, for which he received widespread critical acclaim. He is also the co-founder of Rephlex Records with Grant Wilson-Claridge.'[1]",
-				"https://en.wikipedia.org/wiki/Aphex_Twin", "1991", "2014", "https://www.youtube.com/embed/S5UBYOv1G9A",
+				"https://en.wikipedia.org/wiki/Aphex_Twin", "1991", "2014", "https://www.youtube.com/embed/S5UBYOv1G9A?controls=1",
 				"./images/aphexMembers.jpg", tagAdven);
 		review1 = reviewsRepo.save(review1);
 		Review review2 = new Review("Boards of Canada", "./images/boardsOfCanada.jpg", idm,

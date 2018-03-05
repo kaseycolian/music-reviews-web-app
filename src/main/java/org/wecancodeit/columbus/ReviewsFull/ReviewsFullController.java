@@ -19,7 +19,6 @@ public class ReviewsFullController {
 	@Resource
 	private TagRepository tagRepo;
 
-
 	@RequestMapping("review")
 	public String getAReview(@RequestParam Long id, Model model) {
 		model.addAttribute("review", reviewRepo.findOne(id));
@@ -47,7 +46,7 @@ public class ReviewsFullController {
 		model.addAttribute("tags", tagRepo.findAll());
 		return "tags";
 	}
-	
+
 	@RequestMapping("tag")
 	public String getATag(@RequestParam Long id, Model model) {
 		model.addAttribute("tag", tagRepo.findOne(id));
