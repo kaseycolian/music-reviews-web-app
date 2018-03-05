@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ui.Model;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -23,45 +24,48 @@ import java.util.Collection;
 
 public class ReviewsFullControllerTest {
 	private Long id = 42L;
-	
+
 	@InjectMocks
 	private ReviewsFullController underTest;
-	
+
 	@Mock
 	private CategoryRepository categoryRepo;
-	
+
 	@Mock
 	private ReviewsRepository reviewRepo;
-	
+
 	@Mock
 	private TagRepository tagRepo;
-	
+
 	@Mock
 	private Model model;
-	
+
 	@Mock
 	private Review oneReview;
-	
+
 	@Mock
 	private Review twoReview;
-	
+
 	@Mock
 	private Category oneGenre;
-	
+
 	@Mock
 	private Category twoGenre;
 	
 	@Mock
+	private Tag oneTag;
+
+	@Mock
 	Iterable<Category> allGenres;
-	
+
 	@Mock
 	Iterable<Tag> tags;
-	
+
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 	}
-	
+
 	@Test
 	public void shouldGetASingleReviewModel() {
 		when(reviewRepo.findOne(id)).thenReturn(oneReview);
@@ -70,39 +74,50 @@ public class ReviewsFullControllerTest {
 	}
 	
 	@Test
-	public void shouldGetAllReviewsModel() {
-		Collection<Review>allReviews = Arrays.asList(oneReview, twoReview);
-		when(reviewRepo.findAll()).thenReturn(allReviews);
-		underTest.getAllReviews(model);
-		verify(model).addAttribute("reviews", oneReview);
-		verify(model).addAttribute("reviews", twoReview);
-		}
-	
-//	@Test
-//	public void shouldGetASingleCategoryModel() {
-//		when(categoryRepo.findOne(id)).thenReturn(oneReview);
-//		underTest.getACategory(id, model);
-//		
-//	}
-	
+	public void shouldGetASingleGenreModel() {
+		when(categoryRepo.findOne(id)).thenReturn(oneGenre);
+		underTest.getACategory(id, model);
+		verify(model).addAttribute("category", oneGenre);
+			
+	}
+
 	@Test
-	public void shouldShowAllCategories() {
-//		Collection<Category>allGenres = Arrays.asList(oneGenre, twoGenre);
-		Category oneGenre = new Category("ska");
-		categoryRepo.save(oneGenre);
-//		long oneGenreId = oneGenre.getId();
-		
-		Category twoGenre = new Category("punk");
-		categoryRepo.save(twoGenre);
-//		long twoGenreId = twoGenre.getId();
-		
-		Iterable<Category> allGenres =  categoryRepo.findAll();
-		
-//		when (categoryRepo.findAll()).thenReturn(oneGenre, twoGenre);
-		assertThat(allGenres, containsInAnyOrder("ska", "punk"));
-//		when(categoryRepo.findAll()).thenReturn(allGenres);
-//		underTest.getAllCategories(model);
-		
+	public void shouldAddAllGenresToModel() {
+		when(categoryRepo.findAll()).thenReturn(allGenres);
+		underTest.getAllCategories(model);
+		verify(model).addAttribute("genres", allGenres);
 	}
 	
+	@Test
+	public void shouldAddASingleTagToModel() {
+		when(tagRepo.findOne(id)).thenReturn(oneTag);
+		underTest.getATag(id, model);
+		verify(model).addAttribute("tag", oneTag);
+	}
+
+	@Test
+	public void shouldReturnSingleReviewTemplate() {
+		String result = underTest.getAReview(id, model);
+		assertThat(result, is("review"));
+	}
+
+	@Test
+	public void shouldReturnSingleGenreTemplate() {
+		String result = underTest.getACategory(id, model);
+		assertThat(result, is("category"));
+
+	}
+
+	@Test
+	public void shouldReturnAllGenresTemplate() {
+		String result = underTest.getAllCategories(model);
+		assertThat(result, is("genres"));
+
+	}
+
+	@Test
+	public void ShouldReturnTagsTemplate() {
+		String result = underTest.getAllTags(model);
+		assertThat(result, is("tags"));
+	}
 }
