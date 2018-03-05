@@ -3,7 +3,7 @@
 <mvc:resources mapping="/resources/**" location="/resources/" />
 
 <head>
-<link rel="stylesheet" type="text/css" href="./allGenresStylesheet.css" />
+<link rel="stylesheet" type="text/css" href="./indexStylesheet.css" />
 <title>Genres</title>
 </head>
 
@@ -14,7 +14,7 @@
 	</header>
 
 	<div>
-		<Section>
+		<section>
 
 			<h2>Genres:</h2>
 			<ul th:each="category: ${genres}">
@@ -22,7 +22,7 @@
 						th:text="${category.category}" /></li>
 			</ul>
 
-		</Section>
+		</section>
 
 	</div>
 </div>

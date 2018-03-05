@@ -24,20 +24,24 @@
 					th:text="'Year of last studio release: ' + ${review.lastRelease}" />
 			</div>
 
-					<div class="video">
-						<iframe th:src="${review.youTubeUrl}"> </iframe>
-</div>
+			<div class="video">
+				<iframe th:src="${review.youTubeUrl}"> </iframe>
+			</div>
 		</section>
 
 		<article>
-			<h2>Behind the music:</h2>
-			<p th:text="${review.content}" />
-			<a th:href="${review.footerUrl}">[1] Reference Link</a> <img
-				th:src="${review.imageUrl}" alt="Band logo" />
-			<h3>Tags</h3>
-			<ul th:each="tag: ${review.tags}">
-				<li th:text="${tag.getTag()}" />
-			</ul>
+			<div class="information">
+				<h2>Behind the music:</h2>
+				<p th:text="${review.content}" />
+				<a th:href="${review.footerUrl}">[1] Reference Link</a> <img
+					th:src="${review.imageUrl}" alt="Band logo" />
+			</div>
+			<div class="tags">
+				<h3>Tags:</h3>
+				<ul th:each="tag: ${review.tags}">
+					<li th:text="'&nbsp;' + ${tag.getTag()}" />
+				</ul>
+			</div>
 		</article>
 
 		<footer>

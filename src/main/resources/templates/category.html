@@ -3,8 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<link rel="stylesheet" type="text/css"
-	href="./singleGenreStylesheet.css" />
+<link rel="stylesheet" type="text/css" href="./singGenreStylesheet.css" />
 
 <title>Reviews Per Genre</title>
 </head>
@@ -19,8 +18,9 @@
 		<section>
 
 			<ul th:each="review : ${reviews}">
-				<li><a th:href="@{/review(id=${review.id})}" ><img th:src="${review.membersPic}" alt="Band Members"/> </a>
-				<a th:href="@{/review(id=${review.id})}" th:text="${review.name}"/></li>
+				<li><a th:href="@{/review(id=${review.id})}"><img
+						th:src="${review.membersPic}" alt="Band Members" /> </a> <a
+					th:href="@{/review(id=${review.id})}" th:text="${review.name}" /></li>
 			</ul>
 
 		</section>

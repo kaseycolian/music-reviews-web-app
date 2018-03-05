@@ -25,15 +25,15 @@ a:hover {
 
 .container {
 	display: grid;
-	grid-template-rows: 17rem 1fr;
+	grid-template-rows: 19rem 1fr;
 	height: 100vh;
 	grid-gap: 1rem;
 }
 
 header:hover {
 	background-image: url(/images/stars.png);
-	margin-top: 1.25rem;
-	font-size: 12rem;
+	margin-top: 1rem;
+/* 	font-size: 10rem; */
 }
 
 header {
@@ -82,7 +82,6 @@ h2 {
 	font-size: 4.5rem;
 	font-style: italic;
 	-webkit-text-stroke: .05rem black;
-	
 }
 
 li {
