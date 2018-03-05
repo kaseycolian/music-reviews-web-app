@@ -19,8 +19,8 @@
 		<section>
 
 			<ul th:each="review : ${reviews}">
-				<li><img th:src="${review.membersPic}" alt="Band Members"/> 
-				<a th:href="@{/review(id=${review.id})}" th:text="${review.name}"></a></li>
+				<li><a th:href="@{/review(id=${review.id})}" ><img th:src="${review.membersPic}" alt="Band Members"/> </a>
+				<a th:href="@{/review(id=${review.id})}" th:text="${review.name}"/></li>
 			</ul>
 
 		</section>

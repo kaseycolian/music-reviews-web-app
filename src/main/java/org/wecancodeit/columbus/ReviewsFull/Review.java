@@ -78,8 +78,8 @@ public class Review {
 		return membersPic;
 	}
 
-	public Review(String name, String imageUrl, Category category, String content, String footerUrl, String firstRelease,
-			String lastRelease, String youTubeUrl, String membersPic, Tag... tags) {
+	public Review(String name, String imageUrl, Category category, String content, String footerUrl,
+			String firstRelease, String lastRelease, String youTubeUrl, String membersPic, Tag... tags) {
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.category = category;

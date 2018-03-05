@@ -1,0 +1,21 @@
+* {
+	max-width: 100vw;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-color: orange;
+}
+
+.container {
+	display: grid;
+	grid-template: 8rem 1fr 1 fr 8rem;
+	background-color: purple;
+	height: 100vh;
+	grid-gap: 1rem;
+}
+
+header{
+/* 	display: flex; */
+/* 	justify-content: center; */
+	background-color: pink;
+}
