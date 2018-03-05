@@ -8,23 +8,23 @@
 </head>
 
 <body>
-<div class="container">
-	<header>
-		<h1>Music Reviews by Genres</h1>
-	</header>
+	<div class="container">
+		<header>
+			<h1>Music Reviews by Genres</h1>
+		</header>
 
-	<div>
-		<section>
+		<div>
+			<section>
 
-			<h2>Genres:</h2>
-			<ul th:each="category: ${genres}">
-				<li><a th:href="@{/category(id=${category.id})}"
+				<h2>Genres:</h2>
+				<ul th:each="category: ${genres}">
+					<li><a th:href="@{/category(id=${category.id})}"
 						th:text="${category.category}" /></li>
-			</ul>
+				</ul>
 
-		</section>
+			</section>
 
+		</div>
 	</div>
-</div>
 </body>
 </html>

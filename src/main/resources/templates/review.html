@@ -37,7 +37,7 @@
 					th:src="${review.imageUrl}" alt="Band logo" />
 			</div>
 			<div class="tags">
-				<h3>Tags:</h3>
+				<p>Tags:</p>
 				<ul th:each="tag: ${review.tags}">
 					<li th:text="'&nbsp;' + ${tag.getTag()}" />
 				</ul>

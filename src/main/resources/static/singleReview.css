@@ -7,7 +7,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	background-color: orange;
+	background-color: #1A242E;
 	font-family: 'Lato', sans-serif;
 }
 
@@ -15,49 +15,65 @@ img {
 	width: 35rem;
 	heigth: 12rem;
 	wrap: wrap;
+	margin-top: 1.5rem;
+	margin-bottom: 2.5rem;
+	box-shadow: .4rem .4rem 5rem black;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 iframe {
-	width: 40rem;
-	height: 25rem;
+	width: 38rem;
+	height: 23rem;
 }
 
 .video {
-	align-self: flex-end;
+	align-self: center;
 }
 
 a:link {
 	text-decoration: none;
-	color: purple;
+	color: lightgrey;
 }
 
-ul {
-	list-style-type: none;
-	font-size: 1.5rem;
-	
+a:visited {
+	color: #5a5e7e;
+}
+
+a:hover {
+	color: grey;
 }
 
 h1 {
 	font-size: 3.75rem;
 	font-family: 'Ubuntu', sans-serif;
+	color: #d2d2d2;
+	text-shadow: .25rem .25rem .4rem #000000
 }
 
-h2{
+h2 {
 	font-style: italic;
+	font-size: 2.2rem;
 }
 
 h3 {
-	font-size: 1.75rem;
+	font-size: 2.5rem;
+	color: #788ea9
 }
 
 h4 {
-	font-size: 1.25rem;
+	font-size: 1.75rem;
+	color: #788ea9
 }
 
 .container {
 	display: grid;
 	grid-template-rows: 8rem 1fr 1fr 3rem;
-	background-color: purple;
 	height: 100vh;
 }
 
@@ -69,49 +85,54 @@ h4 {
 	margin-right: 5rem;
 	font-style: italic;
 }
-.dates h4{
+
+.dates h4 {
 	margin-top: 1.5rem;
-	
-	}
+}
 
 section {
-	background-color: lightblue;
 	display: grid;
-	grid-template-columns: 5fr 5fr;
+	grid-template-columns: 4.5fr 5.5fr;
+	margin-top: 1.5rem;
 }
 
 .information {
-	background-color: lavender;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-right: 10rem;
 	margin-left: 10rem;
+	margin-top: 3rem;
 	font-size: 1.5rem;
+	color: #9e9e9e;
+	font-size: 1.35rem;
 }
 
 article img {
 	align-self: center;
 }
 
-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: 'Ubuntu', sans-serif;
-	background-color: pink;
+article p {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 
 .tags {
 	display: flex;
-	flex-direction: rows;
-	align-items: flex-end;
+	align-items: center;
+	color: #bab61b;
+	margin-left: .75rem;
+	font-size: 1.7rem;
+}
+
+ul {
+	list-style-type: none;
+	font-size: 1.5rem;
 }
 
 footer {
 	display: flex;
-	justify-contant: flex-end;
-	align-items: flex-end;
-	background-color: yellow;
+	justify-content: center;
+	align-items: center;
 }
