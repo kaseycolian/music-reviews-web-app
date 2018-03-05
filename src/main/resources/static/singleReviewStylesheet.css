@@ -1,0 +1,34 @@
+* {
+	font-family: "Calibri", Candara, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+	max-width: 100vw;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	opacity: 1;
+}
+
+.container{
+	display: grid;
+	grid-template-rows: 5rem 1fr 3rem;
+	background-color: orange;
+	
+}
+
+footer {
+	font-family: "Cambria", Georgia, serif;
+	background-color: orange;
+}
+
+/*unvisited link*/
+a:link {
+	color: #136183;
+}
+/* visited link*/
+a:visited {
+	color: #591B87;
+}
+/* mouse over link*/
+a:hover {
+	color: #DB1291;
+}

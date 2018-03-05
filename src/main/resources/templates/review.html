@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <mvc:resources mapping="/resources/**" location="/resources/" />
+
 <head>
-<link rel="stylesheet" type="text/css" href="./reviewStylesheet.css" />
+<link rel="stylesheet" type="text/css" href="./review.css" />
+
 <title th:text="${review.name}" />
 </head>
 <body>
+	<div class="container">
+		<header>
 
-	<header>
+			<h1 th:text="${review.name} + ' Review:'" />
+		</header>
 
-		<h1 th:text="${review.name} + ' Review:'" />
-	</header>
+		<section>
+			<h3 th:text="'Genre: ' + ${review.category}" />
+			<h4
+				th:text="'Year of first studio release: ' + ${review.firstRelease}" />
+			<h4 th:text="'Year of last studio release: ' + ${review.lastRelease}" />
 
-	<section> <h3 th:text="'Genre: ' + ${review.category}" />
-		<h4
-			th:text="'Year of first studio release: ' + ${review.firstRelease}" />
-		<h4 th:text="'Year of last studio release: ' + ${review.lastRelease}" />
-		
-		<iframe th:src="${review.youTubeUrl}"> </iframe>
-
-
-	</section>
-
-	<Article>
-		<h2>Behind the music:</h2>
-		<p th:text="${review.content}" />
-		<em><a th:href="${review.footerUrl}">[1] Reference Link</a> </em>
-		<img th:src="${review.imageUrl}" alt="Band logo" />
-		<p th:text="'Tags: ' + ${review.tags}" />
-	</Article>
+			<iframe th:src="${review.youTubeUrl}"> </iframe>
 
 
+		</section>
+
+		<Article>
+			<h2>Behind the music:</h2>
+			<p th:text="${review.content}" />
+			<a th:href="${review.footerUrl}">[1] Reference Link</a> <img
+				th:src="${review.imageUrl}" alt="Band logo" />
+			<p th:text="'Tags: ' + ${review.tags}" />
+		</Article>
+
+	</div>
 </body>
 
 <footer>
