@@ -99,7 +99,7 @@ public class JpaMappingTest {
 	public void shouldGetIdFromTag() {
 		Tag tag1 = tagRepo.save(new Tag("amazing"));
 		Tag tag2 = tagRepo.save(new Tag("sweet"));
-		
+
 		long tagId = tag1.getId();
 		long tagId2 = tag2.getId();
 
@@ -138,7 +138,7 @@ public class JpaMappingTest {
 
 		Review review1 = new Review("11", "22", oneGenre, "33", "44", "55", "66", "77", "88", tag1);
 		reviewsRepo.save(review1);
-		Review review2 = new Review("ab", "bc", oneGenre, "de", "fg", "hi,", "jk", "lm","no", tag1);
+		Review review2 = new Review("ab", "bc", oneGenre, "de", "fg", "hi,", "jk", "lm", "no", tag1);
 		review2 = reviewsRepo.save(review2);
 
 		entityManager.flush();

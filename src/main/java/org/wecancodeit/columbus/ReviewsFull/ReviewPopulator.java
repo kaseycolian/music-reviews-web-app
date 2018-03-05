@@ -29,8 +29,8 @@ public class ReviewPopulator implements CommandLineRunner {
 
 		Review review1 = new Review("Aphex Twin", "./images/aphexTwin.jpg", idm,
 				"The sound of Aphex Twin is more intense, with a beat that can drive concentration.  According to Wikipedia: 'Richard David James (born 18 August 1971), best known by his recording alias Aphex Twin, is a Cornish (English) electronic musician, known for his influential and idiosyncratic work in styles such as ambient techno and IDM in the 1990s, for which he received widespread critical acclaim. He is also the co-founder of Rephlex Records with Grant Wilson-Claridge.'[1]",
-				"https://en.wikipedia.org/wiki/Aphex_Twin", "1991", "2014", "https://www.youtube.com/embed/S5UBYOv1G9A?controls=1",
-				"./images/aphexMembers.jpg", tagAdven);
+				"https://en.wikipedia.org/wiki/Aphex_Twin", "1991", "2014",
+				"https://www.youtube.com/embed/S5UBYOv1G9A?controls=1", "./images/aphexMembers.jpg", tagAdven);
 		review1 = reviewsRepo.save(review1);
 		Review review2 = new Review("Boards of Canada", "./images/boardsOfCanada.jpg", idm,
 				"Boards of Canada produce a laid back sound with an overall calming effect, providing a soothing introspective melody to maintain focus.  According to Wikipedia: \"The music of Boards of Canada incorporates elements such as vintage analogue synthesisers, hip hop-inspired breakbeats, and samples from 1970s public broadcasting programmes and other outdated media; it has been described as exploring themes of nostalgia, childhood memory, and nature. In 2012, FACT called them 'one of the best-known and best-loved electronic acts of the last two decades.'\"[1]",

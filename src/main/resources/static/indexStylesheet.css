@@ -33,7 +33,7 @@ a:hover {
 header:hover {
 	background-image: url(/images/stars.png);
 	margin-top: 1rem;
-/* 	font-size: 10rem; */
+	/* 	font-size: 10rem; */
 }
 
 header {
@@ -92,5 +92,4 @@ li {
 	font-style: italic;
 	margin-bottom: 1rem;
 	font-weight: bold;
-
 }

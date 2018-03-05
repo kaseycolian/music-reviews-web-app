@@ -7,18 +7,18 @@ import javax.annotation.Resource;
 import org.junit.Test;
 
 public class TagTest {
-	
+
 	@Resource
 	private ReviewsRepository reviewsRepo;
 
 	Tag underTest = new Tag("obnoxious");
 	Tag underTest2 = new Tag("chill");
-	
+
 	Category category = new Category("jazz");
 
 	Review review1 = new Review("a", "b", category, "c", "d", "e", "f", "g", "h", underTest, underTest2);
 	Review review2 = new Review("z", "y", category, "q", "r", "s", "t", "u", "v", underTest2);
-	
+
 	@Test
 	public void shouldReturnTagDescription() {
 		String tag1 = underTest.getTag();
