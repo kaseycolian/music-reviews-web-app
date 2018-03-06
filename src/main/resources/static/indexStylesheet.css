@@ -57,8 +57,7 @@ div::after {
 	background-size: cover;
 	position: absolute;
 	z-index: -1;
-	background-size: cover;
-	background-repeat: no-repeat;
+	
 }
 
 section {
