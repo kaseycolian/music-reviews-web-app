@@ -46,10 +46,11 @@
 
 		<footer>
 			<h4>
-				<a href="http://localhost:8080/genres">Back to home</a>
-				
-				<a th:href="@{/category(id=${review.category.id})}" th:text="'Back to ' + ${review.category.toString()}" />
-				
+
+				<a th:href="@{genres}" th:text="'Back to home'" /> <a
+					th:href="@{/category(id=${review.category.id})}"
+					th:text="'Back to ' + ${review.category.toString()}" />
+
 			</h4>
 		</footer>
 
