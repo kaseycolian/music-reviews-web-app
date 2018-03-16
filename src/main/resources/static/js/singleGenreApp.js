@@ -25,6 +25,10 @@ bandImages.forEach(function(listItem) {
 	// = 'none';})
 
 })
+
+
+////HTML  Canvas for moving backgrounds!
+
 //Try to make a new line transition below header that says to pick an artist to review
 //var header = document.querySelector('header');
 //newHeaderLine = document

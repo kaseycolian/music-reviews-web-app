@@ -1,13 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 @media only screen and (max-width: 600px) {
-	* {
-		width: 50%;
+	/* 	* { */
+	/* 				max-width: 600px; */
+	/* 		margin-left: 15rem; */
+	/* 		margin-right: 15rem; */
+	/* 	} */
+	.container {
+		display: grid;
+		/* grid-template-rows: 1fr 1fr 2.5rem; */
+		margin-top: 3rem;
+
+		/* 	height: 100vh; */
 	}
-	
-	header{
-	width: 50%;
+	header {
+		justify-content: flex-end;
+		/* height: 20rem; */
+		font-size: 2em;
+		/* align-items: stretch; */
 	}
+	h1{
+	font-size: 1em;}
+	/* 	header { */
+	/* 		display: flex; */
+	/* 		flex-direction: column; */
+	/* 		width: 50%; */
+	/* 		justify-content: center: */
+	/* 	} */
+	/* 	header{ */
+	/* 	width: 50%; */
+	/* 	} */
 }
 
 * {
@@ -46,15 +68,14 @@ h1 {
 
 .container {
 	display: grid;
-	grid-template-rows: 7em 1fr 2.5rem;
+	grid-template-rows: 6rem 1fr 2.5rem;
 	height: 100vh;
 }
 
 header {
 	display: flex;
 	justify-content: center;
-	flex-wrap: wrap;
-	align-items: flex-end;
+	align-items: center;
 	color: white;
 	padding-top: .5rem;
 }

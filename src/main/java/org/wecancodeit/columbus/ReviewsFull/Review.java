@@ -97,6 +97,8 @@ public class Review {
 	private Review() {
 
 	}
+	
+	
 
 	@Override
 	public int hashCode() {

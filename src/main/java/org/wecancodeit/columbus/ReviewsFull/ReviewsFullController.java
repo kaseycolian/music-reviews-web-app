@@ -23,6 +23,7 @@ public class ReviewsFullController {
 	public String getAReview(@RequestParam Long id, Model model) {
 		model.addAttribute("review", reviewRepo.findOne(id));
 		model.addAttribute("category", categoryRepo.findOne(id));
+		
 		return "review";
 	}
 

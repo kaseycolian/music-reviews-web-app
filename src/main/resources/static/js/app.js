@@ -23,6 +23,8 @@ const genresTitle = document.querySelector('h2')
 genresTitle.addEventListener('click', function() {
 
 	backgroundSection.style.backgroundImage = ('url(/images/music.png)');
+	backgroundSection.style.backgroundSize = 'cover';
+	backgroundSection.style.backgroundRepeat = 'repeat';
 	backgroundSection.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
 	// backgroundSection.style.backgroundColor = 'rgba(232, 9, 180, 0.15)'
 })

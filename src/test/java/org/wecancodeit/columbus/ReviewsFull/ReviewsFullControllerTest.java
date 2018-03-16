@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ui.Model;
 
@@ -32,7 +33,10 @@ public class ReviewsFullControllerTest {
 
 	@Mock
 	private TagRepository tagRepo;
-
+	
+	@Mock
+	private CommentRepository commentRepo;
+	
 	@Mock
 	private Model model;
 
@@ -57,11 +61,18 @@ public class ReviewsFullControllerTest {
 	@Mock
 	Iterable<Tag> tags;
 
+
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 	}
 
+	
+	@Test
+	public void shouldAddAComment() {
+			when(commentRepo.findOne(commendId)).thenReturn(comment1);	
+	}
+	
 	@Test
 	public void shouldGetASingleReviewModel() {
 		when(reviewRepo.findOne(id)).thenReturn(oneReview);
