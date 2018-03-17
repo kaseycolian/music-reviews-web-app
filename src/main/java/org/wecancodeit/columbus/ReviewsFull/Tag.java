@@ -1,6 +1,9 @@
 package org.wecancodeit.columbus.ReviewsFull;
 
+import static java.util.Arrays.asList;
+
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,9 +32,13 @@ public class Tag {
 	public String getTag() {
 		return tagDescription;
 	}
+	
 
-	public Tag(String tagDescription) {
+	//test for Review...reviews
+	public Tag(String tagDescription, Review...reviews) {
 		this.tagDescription = tagDescription;
+		this.reviews = new HashSet<>(asList(reviews));
+		
 	}
 
 	@SuppressWarnings("unused")

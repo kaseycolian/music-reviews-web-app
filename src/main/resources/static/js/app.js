@@ -25,10 +25,10 @@ genresTitle.addEventListener('click', function() {
 	backgroundSection.style.backgroundImage = ('url(/images/music.png)');
 	backgroundSection.style.backgroundSize = 'cover';
 	backgroundSection.style.backgroundRepeat = 'repeat';
-	backgroundSection.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+	backgroundSection.style.backgroundColor = 'rgba(0, 0, 0, 0.65)';
 	// backgroundSection.style.backgroundColor = 'rgba(232, 9, 180, 0.15)'
 })
 genresTitle.addEventListener('dblclick', function() {
 	backgroundSection.style.backgroundImage =  ('none');
-	backgroundSection.style.backgroundColor = ('none');
+	backgroundSection.style.backgroundColor = 'rgba(0, 0, 0, 0.00)';
 })

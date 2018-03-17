@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Review {
@@ -27,8 +28,8 @@ public class Review {
 	private String youTubeUrl;
 	private String footerUrl;
 	private String membersPic;
-
-	@ManyToOne
+				//one category to many reviews
+	@ManyToOne //many reviews to one category
 	private Category category;
 
 	@ManyToMany
@@ -36,6 +37,14 @@ public class Review {
 
 	public Collection<Tag> getTags() {
 		return tags;
+	}
+			
+				//one review to many comments
+	@OneToMany  (mappedBy = "review") //many comments to one review
+	private Collection<Comment> comments;
+
+	public Collection<Comment> getComments() {
+		return comments;
 	}
 
 	public Category getCategory() {
@@ -97,8 +106,6 @@ public class Review {
 	private Review() {
 
 	}
-	
-	
 
 	@Override
 	public int hashCode() {

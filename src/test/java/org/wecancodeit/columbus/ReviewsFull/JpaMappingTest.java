@@ -28,17 +28,44 @@ public class JpaMappingTest {
 
 	@Resource
 	private CategoryRepository categoryRepo;
+	
+	
+	
 
 	@Resource
 	private TagRepository tagRepo;
 
+	@Resource
+	private CommentRepository commentRepo;
+
+	Category oneGenre = new Category("ska");
+	Tag tag1 = new Tag("nice");
+	Review review = new Review("aa", "bb", oneGenre, "cc", "dd", "ee", "ff", "gg", "hh", tag1);
+	      
+	@Test
+	public void shouldSaveAndLoadNewComment() {
+		Category newCategory = new Category("");
+		Tag newTag = new Tag("");
+		Review newReview = new Review("", "", newCategory, "", "", "", "", "", "", newTag);
+		Comment newComment = new Comment ("this is great!", newReview);
+		newReview = reviewsRepo.save(newReview);
+		newComment = commentRepo.save(newComment);
+				
+		long commentId = newComment.getId();
+		
+		entityManager.flush();
+		entityManager.clear();
+		
+		newComment = commentRepo.findOne(commentId);
+		
+		assertThat(newComment.getId(), is(commentId));
+		
+	}
+
 	@Test
 	public void shouldSaveAndLoadNewReview() {
-		Category oneGenre = new Category("ska");
 		oneGenre = categoryRepo.save(oneGenre);
-		Tag tag1 = new Tag("nice");
 		tag1 = tagRepo.save(tag1);
-		Review review = new Review("aa", "bb", oneGenre, "cc", "dd", "ee", "ff", "gg", "hh", tag1);
 		review = reviewsRepo.save(review);
 
 		long reviewId = review.getId();

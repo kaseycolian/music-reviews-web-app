@@ -7,7 +7,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ui.Model;
 
@@ -21,6 +20,7 @@ import static org.mockito.Mockito.when;
 
 public class ReviewsFullControllerTest {
 	private Long id = 42L;
+	private Long commentId = 33L;
 
 	@InjectMocks
 	private ReviewsFullController underTest;
@@ -33,15 +33,18 @@ public class ReviewsFullControllerTest {
 
 	@Mock
 	private TagRepository tagRepo;
-	
+
 	@Mock
 	private CommentRepository commentRepo;
-	
+
 	@Mock
 	private Model model;
 
 	@Mock
 	private Review oneReview;
+
+	@Mock
+	private Comment comment1;
 
 	@Mock
 	private Review twoReview;
@@ -61,18 +64,21 @@ public class ReviewsFullControllerTest {
 	@Mock
 	Iterable<Tag> tags;
 
+	// @Mock
+	// Iterable<Comment> comments;
 
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 	}
 
-	
 	@Test
 	public void shouldAddAComment() {
-			when(commentRepo.findOne(commendId)).thenReturn(comment1);	
+		when(commentRepo.findOne(commentId)).thenReturn(comment1);
+		underTest.findOneComment(id, model);
+		verify(model).addAttribute("comment", comment1);
 	}
-	
+
 	@Test
 	public void shouldGetASingleReviewModel() {
 		when(reviewRepo.findOne(id)).thenReturn(oneReview);

@@ -5,7 +5,7 @@
 <mvc:resources mapping="/resources/**" location="/resources/" />
 <link rel="stylesheet" type="text/css" href="/singleReview.css" />
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title th:text="${review.name}" />
 </head>
@@ -37,17 +37,42 @@
 				<a th:href="${review.footerUrl}">[1] Reference Link</a> <img
 					th:src="${review.imageUrl}" alt="Band logo" />
 			</div>
-<!-- 			<div class = "comment"> -->
-<!-- 			<form method = "POST"> -->
-<!-- 			<button type="submit" th:value="${course.id}" name="id" th:formaction="@{/del-course}"> -->
-<!-- 		Nuke Course</button> -->
-<!-- 		</form> -->
-<!-- 			</div> -->
+
+
+			<form method="POST">
+				<div>
+					<label>Leave Comment:</label> <input type="hidden"
+						th:value="${review.id}" name="reviewId" /><input type="text"
+						name="commentDetails" />
+				</div>
+				<div>
+					<button th:formaction="@{/add-comment}">Submit Comment</button>
+					<!-- 			<label>Comment:</label> <input type="text" -->
+					<!-- 				name="name" /> -->
+				</div>
+			</form>
+			<div th:each="comment: ${review.getComments()}">
+				<h3 th:text="${comment.getCommentDetails()}"></h3>
+			</div>
+
+
+
 			<div class="tags">
 				<p>Tags:</p>
 				<ul th:each="tag: ${review.tags}">
 					<li th:text="'&nbsp;' + ${tag.getTag()}" />
 				</ul>
+				<form method="POST">
+					<div>
+						<label>New Tag:</label><input type="hidden"
+							th:value="${review.id}" name="reviewId" /><input type="text"
+							name="tagDescription" />
+					</div>
+					<div>
+						<button th:formaction="@{/add-tag}">Submit Tag</button>
+					</div>
+				</form>
+
 			</div>
 		</article>
 
