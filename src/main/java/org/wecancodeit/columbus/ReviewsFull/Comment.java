@@ -15,6 +15,7 @@ public class Comment {
 
 	@Lob
 	private String commentDetails;
+	private String userHandle;
 
 	// one review to many comments
 	// many comments to one review
@@ -32,16 +33,21 @@ public class Comment {
 	// return review;
 	// }
 
-
-	public Comment(String commentDetails, Review review) {
+//test for userHandle
+	public Comment(String commentDetails, Review review, String userHandle) {
 		this.commentDetails = commentDetails;
 		this.review = review;
+		this.userHandle = userHandle;
 	}
 
 	public String getCommentDetails() {
 		return commentDetails;
 	}
 
+	public String getUserHandle() {
+		return userHandle;
+	}
+	
 	public Long getId() {
 		return id;
 	}

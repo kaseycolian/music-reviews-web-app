@@ -33,13 +33,13 @@ public class ReviewsFullController {
 	}
 	
 	@RequestMapping("/add-comment")
-	public String addComment (Long reviewId, String commentDetails) {
+	public String addComment (Long reviewId, String commentDetails, String userHandle) {
 		
 		Review newReview = reviewRepo.findOne(reviewId);
 		
 		
-		if (commentDetails != null) {
-			Comment newComment = new Comment(commentDetails, newReview);
+		if (commentDetails != null && userHandle != null) {
+			Comment newComment = new Comment(commentDetails, newReview, userHandle);
 			commentRepo.save(newComment);
 		}
 		return "redirect:/review?id=" + reviewId;
@@ -47,7 +47,7 @@ public class ReviewsFullController {
 	}
 	
 	@RequestMapping("/add-tag")
-	public String addTag (Long reviewId, String tagDescription) {
+	public String addTag (Long reviewId, String tagDescription, Review review) {
 		Review newReview = reviewRepo.findOne(reviewId);
 //		Tag newTag = tagRepo.findOne(reviewId);
 		
@@ -84,16 +84,20 @@ public class ReviewsFullController {
 
 	@RequestMapping("tag")
 	public String getATag(@RequestParam Long id, Model model) {
-		model.addAttribute("tag", tagRepo.findOne(id));
+		Tag tag = tagRepo.findOne(id);
+//		model.addAttribute("tag", tagRepo.findOne(id));
+		model.addAttribute("tag", tag);
+		model.addAttribute("review", reviewRepo.findOne(id));
+		model.addAttribute("reviews", reviewRepo.findByTagsContains(tag));
 		return "tag";
 	}
 	
-	@RequestMapping("/find-by-comment")
-	public String findOneComment(Long id, Model model) {
-		Comment comment = commentRepo.findOne(id);
-		model.addAttribute("comment", comment);
-		model.addAttribute("comment", commentRepo.findOne(id));
-		return "comment";
-		
-	}
+//	@RequestMapping("/find-by-comment")
+//	public String findOneComment(Long id, Model model) {
+//		Comment comment = commentRepo.findOne(id);
+//		model.addAttribute("comment", comment);
+//		model.addAttribute("comment", commentRepo.findOne(id));
+//		return "comment";
+//		
+//	}
 }

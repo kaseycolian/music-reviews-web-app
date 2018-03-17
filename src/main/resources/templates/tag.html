@@ -3,15 +3,15 @@
 
 <head>
 
-<title>Reviews With Tag</title>
+<title th:text="${tag.tag}"></title>
 </head>
 <body>
-<h1>Reviews for ${tag.tagDescription}</h1>
+<h1 th:text="'Reviews for ' + ${tag.tag}"></h1>
 
 <!-- 	\*<h2 th:text="'Reviews associated with Tag: ' +  ${review.tagDescription}"/>*\ -->
 			<ul th:each="review : ${reviews}">
-<li><a th:href="@{/review(tagDescription=${review.tagDescription})}" 
-th:text="${review.tagDescription}"></a></li>
+<li><a th:href="@{/review(id=${review.id})}" 
+th:text="${review.name}" /></li>
 </ul>
 
 </body>
