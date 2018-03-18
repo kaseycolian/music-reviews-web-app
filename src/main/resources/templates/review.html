@@ -39,46 +39,59 @@
 			</div>
 
 
-			<form method="POST">
-				<div>
-					<label>User's Handle:</label> <input type="hidden"
-						th:value="${review.id}" name="reviewId" /> <input type="text"
-						name="userHandle" />
-				</div>
-				<div>
-					<label for="commentString">Leave Comment:</label> <input type="hidden"
-						th:value="${review.id}" name="reviewId" />
-						<textarea id="leaveCommentBox" name="commentDetails" placeholder="Leave a Comment..." ></textarea>
-<!-- 						<input id="leaveCommentBox" type="text" -->
-<!-- 						name="commentDetails" /> -->
-				</div>
-				<div>
-					<button th:formaction="@{/add-comment}">Submit Comment</button>
-					<!-- 			<label>Comment:</label> <input type="text" -->
-					<!-- 				name="name" /> -->
-				</div>
-			</form>
+			<h3>Comments:</h3>
 			<div th:each="comment: ${review.getComments()}">
 				<p class="userHandle" th:text="${comment.userHandle}"></p>
 				<p class="commentDetails" th:text="${comment.commentDetails}"></p>
 			</div>
+			<form id="newCommentForm"  method="POST">
+				<h4 id="commentSectionHeader"
+					th:text="'Leave a comment regarding ' +  ${review.name}" />
+				<div id="userHandleSection">
+					<label id="handleBoxLabel">User's Handle:</label> <input
+						type="hidden" th:value="${review.id}" name="reviewId" /> <input
+						id="userHandle" type="text" name="userHandle" />
+				</div>
+				<div id="commentDetailsSection">
+					<label id="commentBoxLabel" for="commentString">Leave
+						Comment:</label> <input type="hidden" th:value="${review.id}"
+						name="reviewId" />
+					<textarea id="leaveCommentBox" name="commentDetails"
+						placeholder="Leave a Comment..."></textarea>
+				</div>
+				<div>
+					<button id="submitButton"  th:formaction="@{/add-comment}">Submit
+						Comment</button>
+				</div>
+			</form>
+			
 
 
 
 			<div class="tags">
-				<p>Tags:</p>
-				<form id="newTagForm" method="POST">
-					<div>
-						<label>New Tag:</label><input id="reviewTagId" type="hidden"
-							th:value="${review.id}" name="reviewId" /><input
-							id="descriptionId" type="text" name="tagDescription" />
-					</div>
-					<div>
-						<button id='addTag' th:formaction="@{/add-tag}">Submit
-							Tag</button>
-					</div>
+				<h4>Tags:</h4>
 
-				</form>
+				<div id="tagList">
+					<ul id="tagList" th:each="tag: ${review.getTags()}">
+						<li><a th:href="@{/tag(id=${tag.id})}"
+							th:text="'&nbsp;' + ${tag.getTag()}" /></li>
+						<!-- <li><a th:href="@{/tags-static}" th:text="'&nbsp;' + ${tag.getTag()}" /></li> -->
+					</ul>
+				</div>
+				<div class="newTagForm">
+					<form id="newTagForm" method="POST">
+						<div>
+							<label>New Tag:</label><input id="reviewTagId" type="hidden"
+								th:value="${review.id}" name="reviewId" /><input
+								id="descriptionId" type="text" name="tagDescription" />
+						</div>
+						<div>
+							<button id='addTag' th:formaction="@{/add-tag}">Submit
+								Tag</button>
+						</div>
+
+					</form>
+				</div>
 				<form id="deleteTagForm" method="POST">
 					<label>Remove Tag:</label><input id="removeTagId" type="hidden"
 						th:value="${review.id}" name="reviewId" /><input
@@ -90,14 +103,6 @@
 							Tag</button>
 					</div>
 				</form>
-
-<div id="tagList">
-				<ul id="tagList" th:each="tag: ${review.getTags()}">
-					<li><a th:href="@{/tag(id=${tag.id})}"
-						th:text="'&nbsp;' + ${tag.getTag()}" /></li>
-					<!-- <li><a th:href="@{/tags-static}" th:text="'&nbsp;' + ${tag.getTag()}" /></li> -->
-				</ul>
-				</div>
 			</div>
 
 		</article>

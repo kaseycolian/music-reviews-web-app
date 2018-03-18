@@ -36,7 +36,7 @@ public class ReviewsFullController {
 	}
 
 	@RequestMapping("/add-comment")
-	public String addComment(Long reviewId, String commentDetails, String userHandle) {
+	public String addComment(Model model, Long reviewId, String commentDetails, String userHandle) {
 
 		Review newReview = reviewRepo.findOne(reviewId);
 
@@ -44,14 +44,43 @@ public class ReviewsFullController {
 			Comment newComment = new Comment(commentDetails, newReview, userHandle);
 			commentRepo.save(newComment);
 		}
+		
 		return "redirect:/review?id=" + reviewId;
 
 	}
 
+	@RequestMapping("/add-tag")
+	public String addTag(Model model, Long reviewId, String tagDescription) {
+		
+		Review newReview = reviewRepo.findOne(reviewId);
+		//if review isn't null & tag description isn't null
+		if (newReview != null && tagDescription != null) {
+			Tag existingTag = tagRepo.findByTagDescription(tagDescription);
+			//if existingTag isn't in tag repo, save as newtag and add to review.
+			if (existingTag == null) {
+				Tag newTag = new Tag(tagDescription, newReview);
+				tagRepo.save(newTag);
+				newReview.addTag(newTag);
+				reviewRepo.save(newReview);
+				
+				// if existingTag isn't already attached to review, then add & save new tag to review.
+			} else {
+				if (newReview.tagExists(existingTag.getId()) == false) {
+					newReview.addTag(existingTag);
+					reviewRepo.save(newReview);
+				}
+			}
+			model.addAttribute("review", newReview);
+		}
+		
+		// will parse string for return value from singleTag.html
+		return "singleTag";
+	}
+	
 	@RequestMapping("/remove-tag")
 	public String removeTag(Model model, Long reviewId, String tagDescription) {
 		Review newReview = reviewRepo.findOne(reviewId);
-		if (newReview != null & tagDescription != null) {
+		if (newReview != null && tagDescription != null) {
 			Tag tagToDelete = tagRepo.findByTagDescription(tagDescription);
 			if (tagToDelete != null) {
 				// going through each tag in the review's collection of tags. matching the tag
@@ -73,34 +102,6 @@ public class ReviewsFullController {
 		return "singleTag";
 	}
 
-	@RequestMapping("/add-tag")
-	public String addTag(Model model, Long reviewId, String tagDescription) {
-
-		Review newReview = reviewRepo.findOne(reviewId);
-
-		if (newReview != null && tagDescription != null) {
-			Tag existingTag = tagRepo.findByTagDescription(tagDescription);
-			if (existingTag == null) {
-				Tag newTag = new Tag(tagDescription, newReview);
-				tagRepo.save(newTag);
-				newReview.addTag(newTag);
-				reviewRepo.save(newReview);
-
-				// if Tax exists, add and save new tag.
-			} else {
-				if (newReview.tagExists(existingTag.getId()) == false) {
-					newReview.addTag(existingTag);
-					reviewRepo.save(newReview);
-					// model.addAttribute("tag", existingTag);
-
-				}
-			}
-			model.addAttribute("review", newReview);
-		}
-
-		// will parse string for return value from singleTag.html
-		return "singleTag";
-	}
 
 	@RequestMapping(value = "genres")
 	public String getAllCategories(Model model) {
@@ -117,12 +118,12 @@ public class ReviewsFullController {
 		return "category";
 
 	}
-//
-//	@RequestMapping("tags")
-//	public String getAllTags(Model model) {
-//		model.addAttribute("tags", tagRepo.findAll());
-//		return "tags";
-//	}
+	//
+	// @RequestMapping("tags")
+	// public String getAllTags(Model model) {
+	// model.addAttribute("tags", tagRepo.findAll());
+	// return "tags";
+	// }
 
 	@RequestMapping("tag")
 	public String getATag(@RequestParam Long id, Model model) {

@@ -28,7 +28,7 @@
 	/* 		display: flex; */
 	/* /* 		grid-template-columns: 1fr 1fr; */
 	* /
-		/* 	} */      
+		/* 	} */       
 	header {
 		font-size: 2rem;
 		flex-wrap: wrap;
@@ -60,11 +60,11 @@
 }
 
 img {
-	width: 35rem;
-	heigth: 12rem;
+	width: 29rem;
+	heigth: 11rem;
 	wrap: wrap;
-	margin-top: 1.5rem;
-	margin-bottom: 2.5rem;
+	margin-top: 1.15rem;
+	margin-bottom: 2.75rem;
 	box-shadow: .4rem .4rem 5rem black;
 }
 
@@ -201,4 +201,62 @@ textarea[id='leaveCommentBox'] {
 	display: flex;
 	resize: none;
 	padding: .75rem;
+	border-radius: .75rem .75rem;
+}
+
+input[id='userHandle'] {
+	background-color: rgba(0, 0, 0, .55);
+	color: white;
+	height: 2rem;
+	width: 13rem;
+	display: flex;
+	padding: .25rem;
+	border-radius: .6rem .6rem;
+}
+
+#submitButton {
+	background-color: #bab61b;
+}
+
+#addTag {
+	background-color: pink;
+}
+
+#removeTag {
+	background-color: orange;
+}
+
+label[id='handleBoxLabel'] {
+	color: white;
+}
+
+label[id='commentBoxLabel'] {
+	color: white;
+}
+.tags{
+	background-color: grey;
+}
+
+.newTagForm{
+	
+	background-color: beige;
+}
+
+#userHandleSection{
+	margin-bottom: 1rem;
+	margin-top: .5rem;
+}
+
+#commentDetailsSection{
+	margin-bottom: .5rem;
+}
+
+#submitButton{
+	border-radius: .25rem .25rem;
+	height: 1.7rem;
+	width: 9rem;
+	font-size: .9rem;
+	color:  rgba(0, 0, 0, .85);
+	background-color: #bab61b;
+
 }

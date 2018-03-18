@@ -46,7 +46,7 @@ public class Review {
 	public Collection<Comment> getComments() {
 		return comments;
 	}
-
+	//to check if tagId already exists with review
 	public Boolean tagExists(long tagId) {
 		boolean tagExists = false;
 		for (Tag tag : tags) {
