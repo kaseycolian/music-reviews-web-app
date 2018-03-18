@@ -1,5 +1,5 @@
-<ul  th:each="tag: ${review.getTags()}">
-					<li><a th:href="@{/tag(id=${tag.id})}"
-						th:text="'&nbsp;' + ${tag.getTag()}" /></li>
-					<!-- <li><a th:href="@{/tags-static}" th:text="'&nbsp;' + ${tag.getTag()}" /></li> -->
-				</ul>
+<ul th:each="tag: ${review.getTags()}">
+	<li><a th:href="@{/tag(id=${tag.id})}"
+		th:text="'&nbsp;' + ${tag.getTag()}" /></li>
+
+</ul>

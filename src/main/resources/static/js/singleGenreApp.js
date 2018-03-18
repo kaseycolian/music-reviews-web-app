@@ -7,7 +7,7 @@ h1.addEventListener('mouseover', function() {
 })
 //add Ajax to this function to get res.category.id
 h1.addEventListener('mouseout', function() {
-					h1.innerHTML = 'reviews ';
+					h1.innerHTML = '&tagDescription=';
 })
 
 const bandTiles = document.querySelectorAll('ul li');

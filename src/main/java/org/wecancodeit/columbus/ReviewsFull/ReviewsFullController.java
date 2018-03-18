@@ -117,12 +117,12 @@ public class ReviewsFullController {
 		return "category";
 
 	}
-
-	@RequestMapping("tags")
-	public String getAllTags(Model model) {
-		model.addAttribute("tags", tagRepo.findAll());
-		return "tags";
-	}
+//
+//	@RequestMapping("tags")
+//	public String getAllTags(Model model) {
+//		model.addAttribute("tags", tagRepo.findAll());
+//		return "tags";
+//	}
 
 	@RequestMapping("tag")
 	public String getATag(@RequestParam Long id, Model model) {

@@ -2,17 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+<link rel="stylesheet" type="text/css" href="./singGenreStylesheet.css" />
 
 <title th:text="${tag.tag}"></title>
 </head>
 <body>
-<h1 th:text="'Reviews for ' + ${tag.tag}"></h1>
+	<div class="container">
+		<header>
+			<h1 th:text="'Reviews for Artists tagged with: ' + ${tag.tag}"></h1>
+		</header>
+		<!-- 		<h1 th:text="'Reviews for ' + ${tag.tag}"></h1> -->
 
-<!-- 	\*<h2 th:text="'Reviews associated with Tag: ' +  ${review.tagDescription}"/>*\ -->
+		<section>
 			<ul th:each="review : ${reviews}">
-<li><a th:href="@{/review(id=${review.id})}" 
-th:text="${review.name}" /></li>
-</ul>
-
+				<li><a th:href="@{/review(id=${review.id})}"><img
+						th:src="${review.membersPic}" alt="Band Members" /></a><a
+					th:href="@{/review(id=${review.id})}" th:text="${review.name}" /></li>
+			</ul>
+		</section>
+		<footer>
+			<h3>
+				<a th:href="@{genres}" th:text="'Back to home'" />
+			</h3>
+		</footer>
+	</div>
+	<script src="./js/singleGenreApp.js"></script>
 </body>
 </html>

@@ -46,9 +46,11 @@
 						name="userHandle" />
 				</div>
 				<div>
-					<label>Leave Comment:</label> <input type="hidden"
-						th:value="${review.id}" name="reviewId" /><input type="text"
-						name="commentDetails" />
+					<label for="commentString">Leave Comment:</label> <input type="hidden"
+						th:value="${review.id}" name="reviewId" />
+						<textarea id="leaveCommentBox" name="commentDetails" placeholder="Leave a Comment..." ></textarea>
+<!-- 						<input id="leaveCommentBox" type="text" -->
+<!-- 						name="commentDetails" /> -->
 				</div>
 				<div>
 					<button th:formaction="@{/add-comment}">Submit Comment</button>

@@ -28,7 +28,7 @@
 	/* 		display: flex; */
 	/* /* 		grid-template-columns: 1fr 1fr; */
 	* /
-		/* 	} */  
+		/* 	} */      
 	header {
 		font-size: 2rem;
 		flex-wrap: wrap;
@@ -191,4 +191,14 @@ footer a {
 	margin-left: 5rem;
 	margin-right: 5rem;
 	font-size: 1.4rem;
+}
+
+textarea[id='leaveCommentBox'] {
+	background-color: rgba(0, 0, 0, .55);
+	width: 30rem;
+	height: 10rem;
+	color: white;
+	display: flex;
+	resize: none;
+	padding: .75rem;
 }
