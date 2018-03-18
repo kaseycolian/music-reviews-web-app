@@ -18,10 +18,10 @@
 
 		<section>
 			<div class="dates">
-				<h3 th:text="'Genre: ' + ${review.category.category}" />
-				<h4
+				<h2 th:text="'Genre: ' + ${review.category.category}" />
+				<h3
 					th:text="'Year of first studio release: ' + ${review.firstRelease}" />
-				<h4
+				<h3
 					th:text="'Year of last studio release: ' + ${review.lastRelease}" />
 				<h4>Tags:</h4>
 
@@ -41,7 +41,7 @@
 
 		<article>
 			<div class="information">
-				<h2>Behind the music:</h2>
+				<h2>Behind the Music:</h2>
 				<p th:text="${review.content}" />
 				<a th:href="${review.footerUrl}">[1] Reference Link</a> <img
 					th:src="${review.imageUrl}" alt="Band logo" />
@@ -58,7 +58,7 @@
 						<div id="userHandleSection">
 							<label id="handleBoxLabel">User's Handle:</label> <input
 								type="hidden" th:value="${review.id}" name="reviewId" /> <input
-								id="userHandle" type="text" name="userHandle" />
+								id="userHandle" type="text" name="userHandle" placeholder="Enter Name..." />
 						</div>
 						<div id="commentDetailsSection">
 							<label id="commentBoxLabel" for="commentString">Leave
@@ -73,37 +73,41 @@
 						</div>
 					</form>
 					<div class="tags">
-
-						<div class="newTagForm">
-							<form id="newTagForm" method="POST">
-								<label>New Tag:</label><input id="reviewTagId" type="hidden"
-									th:value="${review.id}" name="reviewId" /><input
-									id="descriptionId" type="text" name="tagDescription" />
-
-								<div>
-									<button id='addTag' th:formaction="@{/add-tag}">Submit
-										Tag</button>
-								</div>
-
-							</form>
+						<div class="tagHeader">
+							<h4>Add and Delete Tags from Review:</h4>
 						</div>
-						<div class="deleteTagForm">
-							<form id="deleteTagForm" method="POST">
-								<label>Remove Tag:</label><input id="removeTagId" type="hidden"
-									th:value="${review.id}" name="reviewId" /><input
-									id="removeTagDescriptionId" type="text"
-									name="tagDeleteDescription" />
+						<div class="allTagForms">
+							<div class="newTagForm">
+								<form id="newTagForm" method="POST">
+									<label>New Tag:</label><input id="reviewTagId" type="hidden"
+										th:value="${review.id}" name="reviewId" /><input
+										id="descriptionId" placeholder="New Tag..." type="text" name="tagDescription" />
 
-								<div>
-									<button id='removeTag' th:formaction="@{/remove-tag}">Remove
-										Tag</button>
-								</div>
-							</form>
+									<div>
+										<button id='addTag' th:formaction="@{/add-tag}">Submit
+											Tag</button>
+									</div>
+
+								</form>
+							</div>
+							<div class="deleteTagForm">
+								<form id="deleteTagForm" method="POST">
+									<label>Remove Tag:</label><input id="removeTagId" type="hidden"
+										th:value="${review.id}" name="reviewId" /><input
+										id="removeTagDescriptionId" placeholder="Tag To Remove..." type="text"
+										name="tagDeleteDescription" />
+
+									<div>
+										<button id='removeTag' th:formaction="@{/remove-tag}">Remove
+											Tag</button>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div id="existingCommentsSection">
-					<h3 th:text="${review.name} + ' comments:'" />
+					<h4 th:text="${review.name} + ' Comments:'" />
 					<div th:each="comment: ${review.getComments()}">
 						<p class="userHandle" th:text="${comment.userHandle}"></p>
 						<p class="commentDetails" th:text="${comment.commentDetails}"></p>
@@ -116,7 +120,7 @@
 		<footer>
 			<h4>
 
-				<a th:href="@{genres}" th:text="'Back to home'" /> <a
+				<a th:href="@{genres}" th:text="'Back to Home'" /> <a
 					th:href="@{/category(id=${review.category.id})}"
 					th:text="'Back to ' + ${review.category.toString()}" />
 
@@ -127,11 +131,14 @@
 	<div id="modalBox" class="modal">
 		<div class="modal-content">
 			<span class="close">x</span>
-			Do better next time!
+			<div class="errorResponse">
+				<h4>Do better next time!</h4>
+				<p>Enter both a name and comment.</p>
+			</div>
 		</div>
 
 	</div>
 	<script src="./js/ajaxTags.js"></script>
-	<script src="./js/singleReview.js"></script>
+	<script src="./js/singleReviewApp.js"></script>
 </body>
 </html>
