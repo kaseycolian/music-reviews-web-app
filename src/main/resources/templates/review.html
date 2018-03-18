@@ -74,33 +74,33 @@
 					</form>
 					<div class="tags">
 
-				<div class="newTagForm">
-					<form id="newTagForm" method="POST">
-						<label>New Tag:</label><input id="reviewTagId" type="hidden"
-							th:value="${review.id}" name="reviewId" /><input
-							id="descriptionId" type="text" name="tagDescription" />
+						<div class="newTagForm">
+							<form id="newTagForm" method="POST">
+								<label>New Tag:</label><input id="reviewTagId" type="hidden"
+									th:value="${review.id}" name="reviewId" /><input
+									id="descriptionId" type="text" name="tagDescription" />
 
-						<div>
-							<button id='addTag' th:formaction="@{/add-tag}">Submit
-								Tag</button>
+								<div>
+									<button id='addTag' th:formaction="@{/add-tag}">Submit
+										Tag</button>
+								</div>
+
+							</form>
 						</div>
+						<div class="deleteTagForm">
+							<form id="deleteTagForm" method="POST">
+								<label>Remove Tag:</label><input id="removeTagId" type="hidden"
+									th:value="${review.id}" name="reviewId" /><input
+									id="removeTagDescriptionId" type="text"
+									name="tagDeleteDescription" />
 
-					</form>
-				</div>
-				<div class="deleteTagForm">
-					<form id="deleteTagForm" method="POST">
-						<label>Remove Tag:</label><input id="removeTagId" type="hidden"
-							th:value="${review.id}" name="reviewId" /><input
-							id="removeTagDescriptionId" type="text"
-							name="tagDeleteDescription" />
-
-						<div>
-							<button id='removeTag' th:formaction="@{/remove-tag}">Remove
-								Tag</button>
+								<div>
+									<button id='removeTag' th:formaction="@{/remove-tag}">Remove
+										Tag</button>
+								</div>
+							</form>
 						</div>
-					</form>
-				</div>
-			</div>
+					</div>
 				</div>
 				<div id="existingCommentsSection">
 					<h3 th:text="${review.name} + ' comments:'" />
@@ -110,10 +110,6 @@
 					</div>
 				</div>
 			</div>
-
-
-
-			
 
 		</article>
 
@@ -128,6 +124,14 @@
 		</footer>
 
 	</div>
+	<div id="modalBox" class="modal">
+		<div class="modal-content">
+			<span class="close">x</span>
+			Do better next time!
+		</div>
+
+	</div>
 	<script src="./js/ajaxTags.js"></script>
+	<script src="./js/singleReview.js"></script>
 </body>
 </html>

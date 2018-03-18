@@ -21,9 +21,9 @@ const form = document.getElementById('newTagForm');
 
 // creating ajax call to create new tag by method created in Controller
 form.addEventListener('submit', function(event) {
-	
+
 	event.preventDefault();
-	
+
 	const tagInputBox = document.getElementById('descriptionId').value;
 	if (tagInputBox == "") {
 		alert("Please fill in tag description!")
@@ -32,7 +32,7 @@ form.addEventListener('submit', function(event) {
 
 	const reviewTagId = document.getElementById('reviewTagId').value;
 	const descriptionId = document.getElementById('descriptionId').value;
-	
+
 	xhr.open('POST', 'http://localhost:8080/add-tag', true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.send("reviewId=" + reviewTagId + "&tagDescription=" + descriptionId);
@@ -43,25 +43,38 @@ const removeForm = document.getElementById('deleteTagForm');
 removeForm.addEventListener('submit', function(event) {
 	event.preventDefault();
 	const removeTagId = document.getElementById('removeTagId').value;
-	const removeTagDescriptionId = document.getElementById('removeTagDescriptionId').value;
-	
+	const removeTagDescriptionId = document
+			.getElementById('removeTagDescriptionId').value;
+
 	xhr.open('POST', 'http://localhost:8080/remove-tag', true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("reviewId=" + removeTagId + "&tagDescription="	+ removeTagDescriptionId);
+	xhr.send("reviewId=" + removeTagId + "&tagDescription="
+			+ removeTagDescriptionId);
 
 })
 
-const commentBox = document.getElementById('newCommentForm');
-commentBox.addEventListener('submit', function(event) {
-	
-	
-	const commentDetailsInput = document.getElementById('leaveCommentBox').value;
-	const userHandleInput = document.getElementById('userHandle').value;
-	
-	if (commentDetailsInput == "" || userHandleInput == "") {
-		event.preventDefault();
-		alert("Please enter a User Handle and Leave Comment to submit a Comment");
-		return false;
-	}
-
-})
+//const commentBox = document.getElementById('newCommentForm');
+//commentBox
+//		.addEventListener('submit',
+//				function(event) {
+//
+//					const commentDetailsInput = document
+//							.getElementById('leaveCommentBox').value;
+//					const userHandleInput = document
+//							.getElementById('userHandle').value;
+//
+//					if (commentDetailsInput == "" || userHandleInput == "") {
+//						event.preventDefault();
+//						modalBox = document.getElementById('modalBox');
+//
+//						// alert("Please enter a User Handle and Leave Comment
+//						// to submit a Comment");
+//						modalBox.style.display = "block"
+//						const modalCloseButton = document.getElementsByClassName("close")[0];
+//						modalCloseButton.addEventListener("click", function() {
+//							modalBox.style.display = "none";
+//						})
+//						return false;
+//					}
+//
+//				})
