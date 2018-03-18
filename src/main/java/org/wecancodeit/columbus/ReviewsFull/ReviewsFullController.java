@@ -1,11 +1,9 @@
 package org.wecancodeit.columbus.ReviewsFull;
 
-import java.util.Collection;
 import java.util.Iterator;
 
 import javax.annotation.Resource;
 
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,26 +42,27 @@ public class ReviewsFullController {
 			Comment newComment = new Comment(commentDetails, newReview, userHandle);
 			commentRepo.save(newComment);
 		}
-		
+
 		return "redirect:/review?id=" + reviewId;
 
 	}
 
 	@RequestMapping("/add-tag")
 	public String addTag(Model model, Long reviewId, String tagDescription) {
-		
+
 		Review newReview = reviewRepo.findOne(reviewId);
-		//if review isn't null & tag description isn't null
+		// if review isn't null & tag description isn't null
 		if (newReview != null && tagDescription != null) {
 			Tag existingTag = tagRepo.findByTagDescription(tagDescription);
-			//if existingTag isn't in tag repo, save as newtag and add to review.
+			// if existingTag isn't in tag repo, save as newtag and add to review.
 			if (existingTag == null) {
 				Tag newTag = new Tag(tagDescription, newReview);
 				tagRepo.save(newTag);
 				newReview.addTag(newTag);
 				reviewRepo.save(newReview);
-				
-				// if existingTag isn't already attached to review, then add & save new tag to review.
+
+				// if existingTag isn't already attached to review, then add & save new tag to
+				// review.
 			} else {
 				if (newReview.tagExists(existingTag.getId()) == false) {
 					newReview.addTag(existingTag);
@@ -72,11 +71,11 @@ public class ReviewsFullController {
 			}
 			model.addAttribute("review", newReview);
 		}
-		
+
 		// will parse string for return value from singleTag.html
 		return "singleTag";
 	}
-	
+
 	@RequestMapping("/remove-tag")
 	public String removeTag(Model model, Long reviewId, String tagDescription) {
 		Review newReview = reviewRepo.findOne(reviewId);
@@ -101,7 +100,6 @@ public class ReviewsFullController {
 		// will parse string in singleTag.html
 		return "singleTag";
 	}
-
 
 	@RequestMapping(value = "genres")
 	public String getAllCategories(Model model) {

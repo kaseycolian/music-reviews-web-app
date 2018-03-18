@@ -75,7 +75,7 @@ public class ReviewsFullControllerTest {
 	@Test
 	public void shouldAddAComment() {
 		when(commentRepo.findOne(commentId)).thenReturn(comment1);
-		underTest.findOneComment(id, model);
+		underTest.addComment(model, 01L, "words", "name");
 		verify(model).addAttribute("comment", comment1);
 	}
 
@@ -126,11 +126,5 @@ public class ReviewsFullControllerTest {
 		String result = underTest.getAllCategories(model);
 		assertThat(result, is("genres"));
 
-	}
-
-	@Test
-	public void ShouldReturnTagsTemplate() {
-		String result = underTest.getAllTags(model);
-		assertThat(result, is("tags"));
 	}
 }

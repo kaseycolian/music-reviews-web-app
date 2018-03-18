@@ -32,13 +32,11 @@ public class Tag {
 	public String getTag() {
 		return tagDescription;
 	}
-	
 
-	//test for Review...reviews
-	public Tag(String tagDescription, Review...reviews) {
+	// test for Review...reviews
+	public Tag(String tagDescription, Review... reviews) {
 		this.tagDescription = tagDescription;
 		this.reviews = new HashSet<>(asList(reviews));
-		
 	}
 
 	@SuppressWarnings("unused")

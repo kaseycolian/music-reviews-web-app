@@ -15,7 +15,7 @@ public class Category {
 	private long id;
 	private String category;
 
-	@OneToMany (mappedBy = "category")
+	@OneToMany(mappedBy = "category")
 	private Collection<Review> reviews;
 
 	public Collection<Review> getReviews() {

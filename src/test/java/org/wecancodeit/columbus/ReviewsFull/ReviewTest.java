@@ -1,7 +1,10 @@
 package org.wecancodeit.columbus.ReviewsFull;
 
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+
+import java.util.Collection;
 
 import javax.annotation.Resource;
 
@@ -74,6 +77,13 @@ public class ReviewTest {
 	public void shouldReturnMembersPic() {
 		String membersPic = underTest.getMembersPic();
 		assertThat(membersPic, is("pics"));
+	}
+
+	@Test
+	public void shoudlReturnTags() {
+		Collection<Tag> tags = underTest.getTags();
+		assertThat(tags, contains(tag2));
+		assertThat(tags, contains(tag1));
 	}
 
 }

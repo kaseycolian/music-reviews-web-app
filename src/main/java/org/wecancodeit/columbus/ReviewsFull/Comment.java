@@ -11,7 +11,7 @@ public class Comment {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 
 	@Lob
 	private String commentDetails;
@@ -21,19 +21,8 @@ public class Comment {
 	// many comments to one review
 	@ManyToOne // (mappedBy = "comment")
 	private Review review;
-	
-	
-	// private Collection<Review> reviews;
-	//
-	// public Collection<Review> getReviews(){
-	// return reviews;
-	// }
 
-	// public Review getReview() {
-	// return review;
-	// }
-
-//test for userHandle
+	// test for userHandle
 	public Comment(String commentDetails, Review review, String userHandle) {
 		this.commentDetails = commentDetails;
 		this.review = review;
@@ -47,11 +36,11 @@ public class Comment {
 	public String getUserHandle() {
 		return userHandle;
 	}
-	
-	public Long getId() {
+
+	public long getId() {
 		return id;
 	}
-	//need to add test for this == added without testing :X
+
 	public Review getReview() {
 		return review;
 	}
