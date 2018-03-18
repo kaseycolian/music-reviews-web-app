@@ -2,7 +2,7 @@ const xhr = new XMLHttpRequest()
 
 xhr.onreadystatechange = function() {
 	if (xhr.readyState === 4 && xhr.status === 200) {
-		// const res = JSON.parse(xhr.responseText);
+
 		const res = xhr.responseText;
 
 		const tagList = document.getElementById('tagList');
@@ -12,7 +12,7 @@ xhr.onreadystatechange = function() {
 
 	}
 }
-
+//creating ajax call to create new tag by method created in Controller
 const form = document.getElementById('newTagForm');
 form.addEventListener('submit', function(event) {
 	event.preventDefault();
@@ -23,7 +23,7 @@ form.addEventListener('submit', function(event) {
 	xhr.send("reviewId=" + reviewTagId + "&tagDescription=" + descriptionId);
 
 })
-
+//creating ajax call to delete tag by method used created in Controller
 const removeForm = document.getElementById('deleteTagForm');
 removeForm.addEventListener('submit', function(event){
 	event.preventDefault();

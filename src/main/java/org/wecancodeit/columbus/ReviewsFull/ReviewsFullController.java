@@ -54,7 +54,8 @@ public class ReviewsFullController {
 		if (newReview != null & tagDescription != null) {
 			Tag tagToDelete = tagRepo.findByTagDescription(tagDescription);
 			if (tagToDelete != null) {
-				// going through each tag in the review's collection of tags. matching the tag description and removing it
+				// going through each tag in the review's collection of tags. matching the tag
+				// description and removing it
 				// from that review's collection of tags if it matches an existing tag.
 				Iterator<Tag> tags = newReview.getTags().iterator();
 				while (tags.hasNext()) {
@@ -68,6 +69,7 @@ public class ReviewsFullController {
 			}
 			model.addAttribute("review", newReview);
 		}
+		// will parse string in singleTag.html
 		return "singleTag";
 	}
 
@@ -75,7 +77,7 @@ public class ReviewsFullController {
 	public String addTag(Model model, Long reviewId, String tagDescription) {
 
 		Review newReview = reviewRepo.findOne(reviewId);
-		// Tag newTag = tagRepo.findOne(reviewId);
+
 		if (newReview != null && tagDescription != null) {
 			Tag existingTag = tagRepo.findByTagDescription(tagDescription);
 			if (existingTag == null) {
@@ -83,7 +85,8 @@ public class ReviewsFullController {
 				tagRepo.save(newTag);
 				newReview.addTag(newTag);
 				reviewRepo.save(newReview);
-				// model.addAttribute("tag", newTag);
+
+				// if Tax exists, add and save new tag.
 			} else {
 				if (newReview.tagExists(existingTag.getId()) == false) {
 					newReview.addTag(existingTag);
@@ -95,7 +98,7 @@ public class ReviewsFullController {
 			model.addAttribute("review", newReview);
 		}
 
-		// return "redirect:/review?id=" + reviewId;
+		// will parse string for return value from singleTag.html
 		return "singleTag";
 	}
 
@@ -131,12 +134,4 @@ public class ReviewsFullController {
 		return "tag";
 	}
 
-	// @RequestMapping("/find-by-comment")
-	// public String findOneComment(Long id, Model model) {
-	// Comment comment = commentRepo.findOne(id);
-	// model.addAttribute("comment", comment);
-	// model.addAttribute("comment", commentRepo.findOne(id));
-	// return "comment";
-	//
-	// }
 }
