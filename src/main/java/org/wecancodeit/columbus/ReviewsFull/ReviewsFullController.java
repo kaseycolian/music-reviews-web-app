@@ -28,37 +28,46 @@ public class ReviewsFullController {
 		model.addAttribute("review", reviewRepo.findOne(id));
 		model.addAttribute("category", categoryRepo.findOne(id));
 		model.addAttribute("comment", commentRepo.findOne(id));
-		
+
 		return "review";
 	}
-	
+
 	@RequestMapping("/add-comment")
-	public String addComment (Long reviewId, String commentDetails, String userHandle) {
-		
+	public String addComment(Long reviewId, String commentDetails, String userHandle) {
+
 		Review newReview = reviewRepo.findOne(reviewId);
-		
-		
+
 		if (commentDetails != null && userHandle != null) {
 			Comment newComment = new Comment(commentDetails, newReview, userHandle);
 			commentRepo.save(newComment);
 		}
 		return "redirect:/review?id=" + reviewId;
-				
+
 	}
-	
+
 	@RequestMapping("/add-tag")
-	public String addTag (Long reviewId, String tagDescription, Review review) {
+	public String addTag(Long reviewId, String tagDescription) {
 		Review newReview = reviewRepo.findOne(reviewId);
-//		Tag newTag = tagRepo.findOne(reviewId);
-		
-		if(tagDescription != null) {
-			Tag newTag= new Tag(tagDescription, newReview);
-			tagRepo.save(newTag);
+		// Tag newTag = tagRepo.findOne(reviewId);
+		if (newReview != null && tagDescription != null) {
+			Tag existingTag = tagRepo.findByTagDescription(tagDescription);
+			if (existingTag == null) {
+				Tag newTag = new Tag(tagDescription, newReview);
+				tagRepo.save(newTag);
+				newReview.addTag(newTag);
+				reviewRepo.save(newReview);
+			} else {
+				// make catch if review already has that tag
+				if (newReview.tagExists(existingTag.getId()) == false) {
+					newReview.addTag(existingTag);
+					reviewRepo.save(newReview);
+				}
+
+			}
 		}
-			
+
 		return "redirect:/review?id=" + reviewId;
 	}
-	
 
 	@RequestMapping(value = "genres")
 	public String getAllCategories(Model model) {
@@ -85,19 +94,19 @@ public class ReviewsFullController {
 	@RequestMapping("tag")
 	public String getATag(@RequestParam Long id, Model model) {
 		Tag tag = tagRepo.findOne(id);
-//		model.addAttribute("tag", tagRepo.findOne(id));
+		// model.addAttribute("tag", tagRepo.findOne(id));
 		model.addAttribute("tag", tag);
 		model.addAttribute("review", reviewRepo.findOne(id));
 		model.addAttribute("reviews", reviewRepo.findByTagsContains(tag));
 		return "tag";
 	}
-	
-//	@RequestMapping("/find-by-comment")
-//	public String findOneComment(Long id, Model model) {
-//		Comment comment = commentRepo.findOne(id);
-//		model.addAttribute("comment", comment);
-//		model.addAttribute("comment", commentRepo.findOne(id));
-//		return "comment";
-//		
-//	}
+
+	// @RequestMapping("/find-by-comment")
+	// public String findOneComment(Long id, Model model) {
+	// Comment comment = commentRepo.findOne(id);
+	// model.addAttribute("comment", comment);
+	// model.addAttribute("comment", commentRepo.findOne(id));
+	// return "comment";
+	//
+	// }
 }

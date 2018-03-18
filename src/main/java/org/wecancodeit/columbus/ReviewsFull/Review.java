@@ -28,8 +28,8 @@ public class Review {
 	private String youTubeUrl;
 	private String footerUrl;
 	private String membersPic;
-				//one category to many reviews
-	@ManyToOne //many reviews to one category
+	// one category to many reviews
+	@ManyToOne // many reviews to one category
 	private Category category;
 
 	@ManyToMany
@@ -38,13 +38,24 @@ public class Review {
 	public Collection<Tag> getTags() {
 		return tags;
 	}
-			
-				//one review to many comments
-	@OneToMany  (mappedBy = "review") //many comments to one review
+
+	// one review to many comments
+	@OneToMany(mappedBy = "review") // many comments to one review
 	private Collection<Comment> comments;
 
 	public Collection<Comment> getComments() {
 		return comments;
+	}
+
+	public Boolean tagExists(long tagId) {
+		boolean tagExists = false;
+		for (Tag tag : tags) {
+			if (tag.getId() == tagId) {
+				tagExists = true;
+				break;
+			}
+		}
+		return tagExists;
 	}
 
 	public Category getCategory() {
@@ -61,6 +72,10 @@ public class Review {
 
 	public String getName() {
 		return name;
+	}
+
+	public void addTag(Tag tag) {
+		tags.add(tag);
 	}
 
 	public String getImageUrl() {
