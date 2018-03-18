@@ -11,8 +11,6 @@
 		<header>
 			<h1 th:text="'Reviews for Artists tagged with ' + ${tag.tag}"></h1>
 		</header>
-		<!-- 		<h1 th:text="'Reviews for ' + ${tag.tag}"></h1> -->
-
 		<section>
 			<ul th:each="review : ${reviews}">
 				<li><a th:href="@{/review(id=${review.id})}"><img

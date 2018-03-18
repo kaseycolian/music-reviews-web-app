@@ -23,6 +23,15 @@
 					th:text="'Year of first studio release: ' + ${review.firstRelease}" />
 				<h4
 					th:text="'Year of last studio release: ' + ${review.lastRelease}" />
+				<h4>Tags:</h4>
+
+				<div id="tagList">
+					<ul id="tagList" th:each="tag: ${review.getTags()}">
+						<li><a th:href="@{/tag(id=${tag.id})}"
+							th:text="'&nbsp;' + ${tag.getTag()}" /></li>
+						<!-- <li><a th:href="@{/tags-static}" th:text="'&nbsp;' + ${tag.getTag()}" /></li> -->
+					</ul>
+				</div>
 			</div>
 
 			<div class="video">
@@ -39,52 +48,38 @@
 			</div>
 
 
-			<h3>Comments:</h3>
-			<div th:each="comment: ${review.getComments()}">
-				<p class="userHandle" th:text="${comment.userHandle}"></p>
-				<p class="commentDetails" th:text="${comment.commentDetails}"></p>
-			</div>
-			<form id="newCommentForm"  method="POST">
-				<h4 id="commentSectionHeader"
-					th:text="'Leave a comment regarding ' +  ${review.name}" />
-				<div id="userHandleSection">
-					<label id="handleBoxLabel">User's Handle:</label> <input
-						type="hidden" th:value="${review.id}" name="reviewId" /> <input
-						id="userHandle" type="text" name="userHandle" />
-				</div>
-				<div id="commentDetailsSection">
-					<label id="commentBoxLabel" for="commentString">Leave
-						Comment:</label> <input type="hidden" th:value="${review.id}"
-						name="reviewId" />
-					<textarea id="leaveCommentBox" name="commentDetails"
-						placeholder="Leave a Comment..."></textarea>
-				</div>
-				<div>
-					<button id="submitButton"  th:formaction="@{/add-comment}">Submit
-						Comment</button>
-				</div>
-			</form>
-			
+			<div id="commentSection">
 
+				<div id="newCommentSection">
+					<form id="newCommentForm" method="POST">
+						<!-- 						<h4 id="commentSectionHeader" -->
+						<!-- 							th:text="'Leave a comment about ' +  ${review.name}" /> -->
+						<h4>Leave a comment</h4>
+						<div id="userHandleSection">
+							<label id="handleBoxLabel">User's Handle:</label> <input
+								type="hidden" th:value="${review.id}" name="reviewId" /> <input
+								id="userHandle" type="text" name="userHandle" />
+						</div>
+						<div id="commentDetailsSection">
+							<label id="commentBoxLabel" for="commentString">Leave
+								Comment:</label> <input type="hidden" th:value="${review.id}"
+								name="reviewId" />
+							<textarea id="leaveCommentBox" name="commentDetails"
+								placeholder="Leave a Comment..."></textarea>
+						</div>
+						<div>
+							<button id="submitButton" th:formaction="@{/add-comment}">Submit
+								Comment</button>
+						</div>
+					</form>
+					<div class="tags">
 
-
-			<div class="tags">
-				<h4>Tags:</h4>
-
-				<div id="tagList">
-					<ul id="tagList" th:each="tag: ${review.getTags()}">
-						<li><a th:href="@{/tag(id=${tag.id})}"
-							th:text="'&nbsp;' + ${tag.getTag()}" /></li>
-						<!-- <li><a th:href="@{/tags-static}" th:text="'&nbsp;' + ${tag.getTag()}" /></li> -->
-					</ul>
-				</div>
 				<div class="newTagForm">
 					<form id="newTagForm" method="POST">
-						<div>
-							<label>New Tag:</label><input id="reviewTagId" type="hidden"
-								th:value="${review.id}" name="reviewId" /><input
-								id="descriptionId" type="text" name="tagDescription" />
-						</div>
+						<label>New Tag:</label><input id="reviewTagId" type="hidden"
+							th:value="${review.id}" name="reviewId" /><input
+							id="descriptionId" type="text" name="tagDescription" />
+
 						<div>
 							<button id='addTag' th:formaction="@{/add-tag}">Submit
 								Tag</button>
@@ -92,18 +87,33 @@
 
 					</form>
 				</div>
-				<form id="deleteTagForm" method="POST">
-					<label>Remove Tag:</label><input id="removeTagId" type="hidden"
-						th:value="${review.id}" name="reviewId" /><input
-						id="removeTagDescriptionId" type="text"
-						name="tagDeleteDescription" />
+				<div class="deleteTagForm">
+					<form id="deleteTagForm" method="POST">
+						<label>Remove Tag:</label><input id="removeTagId" type="hidden"
+							th:value="${review.id}" name="reviewId" /><input
+							id="removeTagDescriptionId" type="text"
+							name="tagDeleteDescription" />
 
-					<div>
-						<button id='removeTag' th:formaction="@{/remove-tag}">Remove
-							Tag</button>
-					</div>
-				</form>
+						<div>
+							<button id='removeTag' th:formaction="@{/remove-tag}">Remove
+								Tag</button>
+						</div>
+					</form>
+				</div>
 			</div>
+				</div>
+				<div id="existingCommentsSection">
+					<h3 th:text="${review.name} + ' comments:'" />
+					<div th:each="comment: ${review.getComments()}">
+						<p class="userHandle" th:text="${comment.userHandle}"></p>
+						<p class="commentDetails" th:text="${comment.commentDetails}"></p>
+					</div>
+				</div>
+			</div>
+
+
+
+			
 
 		</article>
 

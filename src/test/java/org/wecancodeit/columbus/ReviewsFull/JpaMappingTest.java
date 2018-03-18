@@ -28,9 +28,6 @@ public class JpaMappingTest {
 
 	@Resource
 	private CategoryRepository categoryRepo;
-	
-	
-	
 
 	@Resource
 	private TagRepository tagRepo;
@@ -41,25 +38,28 @@ public class JpaMappingTest {
 	Category oneGenre = new Category("ska");
 	Tag tag1 = new Tag("nice");
 	Review review = new Review("aa", "bb", oneGenre, "cc", "dd", "ee", "ff", "gg", "hh", tag1);
-	      
+
+	//Test for relationship between review & comments - one review to many comments
+	
+	// FIX THIS TEST LOGIC - IT AIN'T RIGHT!
 	@Test
 	public void shouldSaveAndLoadNewComment() {
 		Category newCategory = new Category("");
 		Tag newTag = new Tag("");
 		Review newReview = new Review("", "", newCategory, "", "", "", "", "", "", newTag);
-		Comment newComment = new Comment ("this is great!", newReview);
+		Comment newComment = new Comment("this is great!", newReview, "catsMcGee");
 		newReview = reviewsRepo.save(newReview);
 		newComment = commentRepo.save(newComment);
-				
+
 		long commentId = newComment.getId();
-		
+
 		entityManager.flush();
 		entityManager.clear();
-		
+
 		newComment = commentRepo.findOne(commentId);
-		
+
 		assertThat(newComment.getId(), is(commentId));
-		
+
 	}
 
 	@Test
