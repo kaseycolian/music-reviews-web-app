@@ -1,5 +1,8 @@
 package org.wecancodeit.columbus.ReviewsFull;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 import javax.annotation.Resource;
 
 import org.springframework.data.repository.CrudRepository;
@@ -45,8 +48,32 @@ public class ReviewsFullController {
 
 	}
 
+	@RequestMapping("/remove-tag")
+	public String removeTag(Model model, Long reviewId, String tagDescription) {
+		Review newReview = reviewRepo.findOne(reviewId);
+		if (newReview != null & tagDescription != null) {
+			Tag tagToDelete = tagRepo.findByTagDescription(tagDescription);
+			if (tagToDelete != null) {
+				// going through each tag in the review's collection of tags. matching the tag description and removing it
+				// from that review's collection of tags if it matches an existing tag.
+				Iterator<Tag> tags = newReview.getTags().iterator();
+				while (tags.hasNext()) {
+					Tag currentTag = tags.next();
+					if (currentTag.getId() == tagToDelete.getId()) {
+						tags.remove();
+					}
+
+				}
+				reviewRepo.save(newReview);
+			}
+			model.addAttribute("review", newReview);
+		}
+		return "singleTag";
+	}
+
 	@RequestMapping("/add-tag")
-	public String addTag(Long reviewId, String tagDescription) {
+	public String addTag(Model model, Long reviewId, String tagDescription) {
+
 		Review newReview = reviewRepo.findOne(reviewId);
 		// Tag newTag = tagRepo.findOne(reviewId);
 		if (newReview != null && tagDescription != null) {
@@ -56,17 +83,20 @@ public class ReviewsFullController {
 				tagRepo.save(newTag);
 				newReview.addTag(newTag);
 				reviewRepo.save(newReview);
+				// model.addAttribute("tag", newTag);
 			} else {
-				// make catch if review already has that tag
 				if (newReview.tagExists(existingTag.getId()) == false) {
 					newReview.addTag(existingTag);
 					reviewRepo.save(newReview);
-				}
+					// model.addAttribute("tag", existingTag);
 
+				}
 			}
+			model.addAttribute("review", newReview);
 		}
 
-		return "redirect:/review?id=" + reviewId;
+		// return "redirect:/review?id=" + reviewId;
+		return "singleTag";
 	}
 
 	@RequestMapping(value = "genres")
