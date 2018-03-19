@@ -13,11 +13,11 @@ public interface ReviewsRepository extends CrudRepository<Review, Long> {
 	Collection<Review> findByTagsContains(Tag tag);
 
 	Collection<Review> findByTagsId(Long id);
-	
-//	Collection<Review> findByComment(Comment comment);
-	
-//	Collection<Review> findById(Long id);
-	
-	//	Collection<Review> findByComment(Long id);
+
+	// Collection<Review> findByComment(Comment comment);
+
+	// Collection<Review> findById(Long id);
+
+	// Collection<Review> findByComment(Long id);
 
 }

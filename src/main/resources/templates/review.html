@@ -54,11 +54,12 @@
 					<form id="newCommentForm" method="POST">
 						<!-- 						<h4 id="commentSectionHeader" -->
 						<!-- 							th:text="'Leave a comment about ' +  ${review.name}" /> -->
-						<h4>Leave a comment</h4>
+						<h4>Leave a Comment</h4>
 						<div id="userHandleSection">
 							<label id="handleBoxLabel">User's Handle:</label> <input
 								type="hidden" th:value="${review.id}" name="reviewId" /> <input
-								id="userHandle" type="text" name="userHandle" placeholder="Enter Name..." />
+								id="userHandle" type="text" name="userHandle"
+								placeholder="Enter Name..." />
 						</div>
 						<div id="commentDetailsSection">
 							<label id="commentBoxLabel" for="commentString">Leave
@@ -81,7 +82,8 @@
 								<form id="newTagForm" method="POST">
 									<label>New Tag:</label><input id="reviewTagId" type="hidden"
 										th:value="${review.id}" name="reviewId" /><input
-										id="descriptionId" placeholder="New Tag..." type="text" name="tagDescription" />
+										id="descriptionId" placeholder="New Tag..." type="text"
+										name="tagDescription" />
 
 									<div>
 										<button id='addTag' th:formaction="@{/add-tag}">Submit
@@ -91,14 +93,14 @@
 								</form>
 							</div>
 							<div class="deleteTagForm">
-								<form id="deleteTagForm" method="POST" >
+								<form id="deleteTagForm" method="POST">
 									<label>Remove Tag:</label><input id="removeTagId" type="hidden"
 										th:value="${review.id}" name="reviewId" /><input
-										id="removeTagDescriptionId" placeholder="Remove Tag..." type="text"
-										name="tagDeleteDescription" />
+										id="removeTagDescriptionId" placeholder="Remove Tag..."
+										type="text" name="tagDeleteDescription" />
 
 									<div>
-										<button id='removeTag' th:formaction="@{/remove-tag}"  >Remove
+										<button id='removeTag' th:formaction="@{/remove-tag}">Remove
 											Tag</button>
 									</div>
 								</form>

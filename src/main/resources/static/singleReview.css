@@ -28,7 +28,7 @@
 	/* 		display: flex; */
 	/* /* 		grid-template-columns: 1fr 1fr; */
 	* /
-		/* 	} */             
+		/* 	} */                  
 	header {
 		font-size: 2rem;
 		flex-wrap: wrap;
@@ -139,17 +139,17 @@ h3, h4 {
 }
 
 .dates h4 {
-	margin-top: 1.5rem;
+	margin-top: 4.5rem;
 }
 
 #tagList {
-	margin-top: .7rem;
+	margin-top: 1.5rem;
 }
 
 section {
 	display: grid;
 	grid-template-columns: 4.5fr 5.5fr;
-	margin-top: 1.5rem;
+	margin-top: 3.25rem;
 	margin-right: 5rem;
 	margin-left: 5rem;
 }
@@ -197,7 +197,12 @@ ul {
 
 ul li {
 	display: inline;
-	margin-left: .45rem;
+	border: white;
+	/* 	border-style: none solid; */
+	/* 	border-width: .09rem; */
+	/* 	padding: .3rem; */
+	/* 	padding-right: .7rem; */
+	margin-left: .2rem;
 }
 
 footer {

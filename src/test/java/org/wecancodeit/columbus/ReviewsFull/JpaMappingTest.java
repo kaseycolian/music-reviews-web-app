@@ -39,8 +39,8 @@ public class JpaMappingTest {
 	Tag tag1 = new Tag("nice");
 	Review review = new Review("aa", "bb", oneGenre, "cc", "dd", "ee", "ff", "gg", "hh", tag1);
 
-	//Test for relationship between review & comments - one review to many comments
-	
+	// Test for relationship between review & comments - one review to many comments
+
 	// FIX THIS TEST LOGIC - IT AIN'T RIGHT!
 	@Test
 	public void shouldSaveAndLoadNewComment() {

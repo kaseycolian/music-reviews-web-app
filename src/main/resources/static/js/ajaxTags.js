@@ -13,10 +13,10 @@ xhr.onreadystatechange = function() {
 }
 
 function clearField() {
-	   
-	      document.newTagForm.reset();
-	   
-	}
+
+	document.newTagForm.reset();
+
+}
 
 // need this const form for creating tag method - don't delete
 const form = document.getElementById('newTagForm');
@@ -32,7 +32,7 @@ form.addEventListener('submit', function(event) {
 		modalBox.style.display = "block"
 		const modalCloseButton = document.getElementsByClassName("close")[0];
 		modalCloseButton.addEventListener("click", function() {
-		modalBox.style.display = "none";
+			modalBox.style.display = "none";
 		})
 		return false;
 	}
@@ -43,8 +43,8 @@ form.addEventListener('submit', function(event) {
 	xhr.open('POST', 'http://localhost:8080/add-tag', true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.send("reviewId=" + reviewTagId + "&tagDescription=" + descriptionId);
-	
-	//resets form to original placeholder text
+
+	// resets form to original placeholder text
 	newTagForm.reset();
 
 })
@@ -61,14 +61,15 @@ removeForm.addEventListener('submit',
 			const tagDeleteBox = document
 					.getElementById('removeTagDescriptionId').value;
 			if (tagDeleteBox == "") {
-//					event.preventDefault();
-					modalBox = document.getElementById('modalBox');
-					modalBox.style.display = "block"
-					const modalCloseButton = document.getElementsByClassName("close")[0];
-					modalCloseButton.addEventListener("click", function() {
+				// event.preventDefault();
+				modalBox = document.getElementById('modalBox');
+				modalBox.style.display = "block"
+				const modalCloseButton = document
+						.getElementsByClassName("close")[0];
+				modalCloseButton.addEventListener("click", function() {
 					modalBox.style.display = "none";
-					})
-				
+				})
+
 				return false;
 			}
 
