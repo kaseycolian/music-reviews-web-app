@@ -24,11 +24,8 @@
 		position: absolute;
 		left: 0px;
 	}
-	/* 	.video { */
-	/* 		display: flex; */
-	/* /* 		grid-template-columns: 1fr 1fr; */
-	* /
-		/* 	} */                  
+
+             
 	header {
 		font-size: 2rem;
 		flex-wrap: wrap;
@@ -63,7 +60,7 @@ img {
 	width: 29rem;
 	heigth: 11rem;
 	wrap: wrap;
-	margin-top: 1.15rem;
+	margin-top: 1.55rem;
 	margin-bottom: 2.75rem;
 	box-shadow: .4rem .4rem 5rem black;
 }
@@ -306,7 +303,7 @@ label[id='commentBoxLabel'] {
 
 #commentSection {
 	display: flex;
-	margin-top: 2rem;
+	margin-top: 5rem;
 }
 
 #existingCommentsSection {
@@ -357,6 +354,7 @@ input[id='removeTagDescriptionId'] {
 	border: 1px solid #888;
 	width: 30%;
 	font-size: 1.3rem;
+	display: flex;
 }
 
 .close {
@@ -369,18 +367,20 @@ input[id='removeTagDescriptionId'] {
 }
 
 .errorResponse h4 {
+	display: flex;
+	justify-content: center;
 	background-color: white;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	padding-left: .8rem;
-	padding-right: .8rem;
+/* 	padding-left: 1.3rem; */
+/* 	padding-right: 1.3rem; */
 }
 
 .errorResponse p {
 	background-color: white;
 	padding-bottom: 1rem;
-	padding-left: .8rem;
-	padding-right: .8rem;
+	padding-left: 1.3rem;
+	padding-right: 1.3rem;
 }
 
 /* #taglist { */

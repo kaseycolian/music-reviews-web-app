@@ -26,11 +26,12 @@ form.addEventListener('submit', function(event) {
 	// stops from automatically adding in order to check for exceptions
 	event.preventDefault();
 
+	//opens tag modal box if tag field is empty upon submission.
 	const tagInputBox = document.getElementById('descriptionId').value;
 	if (tagInputBox == "") {
-		modalBox = document.getElementById('modalBox');
+		modalBox = document.getElementById('tagModalBox');
 		modalBox.style.display = "block"
-		const modalCloseButton = document.getElementsByClassName("close")[0];
+		const modalCloseButton = document.getElementsByClassName("close")[1];
 		modalCloseButton.addEventListener("click", function() {
 			modalBox.style.display = "none";
 		})
@@ -62,10 +63,9 @@ removeForm.addEventListener('submit',
 					.getElementById('removeTagDescriptionId').value;
 			if (tagDeleteBox == "") {
 				// event.preventDefault();
-				modalBox = document.getElementById('modalBox');
+				modalBox = document.getElementById('tagModalBox');
 				modalBox.style.display = "block"
-				const modalCloseButton = document
-						.getElementsByClassName("close")[0];
+				const modalCloseButton = document.getElementsByClassName("close")[1];
 				modalCloseButton.addEventListener("click", function() {
 					modalBox.style.display = "none";
 				})
