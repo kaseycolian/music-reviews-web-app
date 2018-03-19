@@ -28,7 +28,7 @@
 	/* 		display: flex; */
 	/* /* 		grid-template-columns: 1fr 1fr; */
 	* /
-		/* 	} */           
+		/* 	} */            
 	header {
 		font-size: 2rem;
 		flex-wrap: wrap;
@@ -111,8 +111,6 @@ h2 {
 	font-size: 2.2rem;
 }
 
-
-
 h3, h4 {
 	font-size: 1.75rem;
 	color: #788ea9
@@ -133,18 +131,18 @@ h3, h4 {
 	font-style: italic;
 	width: 28rem;
 }
-.dates h2{
+
+.dates h2 {
 	font-size: 2.75rem;
 	color: #788ea9;
 	margin-bottom: 1rem;
-
 }
 
 .dates h4 {
 	margin-top: 1.5rem;
 }
 
-#tagList{
+#tagList {
 	margin-top: .7rem;
 }
 
@@ -178,7 +176,6 @@ article p {
 	margin-bottom: 1.25rem;
 }
 
-
 .tags {
 	align-items: center;
 	color: #788ea9;
@@ -187,7 +184,7 @@ article p {
 	width: 33rem;
 }
 
-.allTagForms{
+.allTagForms {
 	display: flex;
 	margin-top: .75rem;
 }
@@ -318,6 +315,7 @@ input[id='descriptionId'] {
 	width: 15.25rem;
 	padding-left: .5rem;
 	padding-right: .5rem;
+	background-color: rgba(0, 0, 0, .7);
 }
 
 input[id='removeTagDescriptionId'] {
@@ -327,7 +325,7 @@ input[id='removeTagDescriptionId'] {
 	width: 15.25rem;
 	padding-left: .5rem;
 	padding-right: .5rem;
-
+	background-color: rgba(264, 264, 264, .03);
 }
 
 .deleteTagForm {

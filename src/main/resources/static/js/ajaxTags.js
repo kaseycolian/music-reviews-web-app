@@ -15,9 +15,6 @@ xhr.onreadystatechange = function() {
 // need this const form for creating tag method - don't delete
 const form = document.getElementById('newTagForm');
 
-// exemption message if newTag box empty on submit
-// form.addEventListener('submit', function() {
-// })
 
 // creating ajax call to create new tag by method created in Controller
 form.addEventListener('submit', function(event) {
@@ -37,44 +34,30 @@ form.addEventListener('submit', function(event) {
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.send("reviewId=" + reviewTagId + "&tagDescription=" + descriptionId);
 
+	
+	
+
 })
+//const newTagFiller = document.getElementById('descriptionId');
+//newTagFiller.style.placeholder="this";
+
 // creating ajax call to delete tag by method used created in Controller
 const removeForm = document.getElementById('deleteTagForm');
 removeForm.addEventListener('submit', function(event) {
 	event.preventDefault();
+	
+	const tagDeleteBox = document.getElementById('removeTagDescriptionId').value;
+	if (tagDeleteBox == "") {
+		alert("Please fill in tag description!")
+		return false;
+	}
+	
 	const removeTagId = document.getElementById('removeTagId').value;
-	const removeTagDescriptionId = document
-			.getElementById('removeTagDescriptionId').value;
-
+	const removeTagDescriptionId = document.getElementById('removeTagDescriptionId').value;
+	
 	xhr.open('POST', 'http://localhost:8080/remove-tag', true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("reviewId=" + removeTagId + "&tagDescription="
-			+ removeTagDescriptionId);
+	xhr.send("reviewId=" + removeTagId + "&tagDescription="	+ removeTagDescriptionId);
 
 })
 
-//const commentBox = document.getElementById('newCommentForm');
-//commentBox
-//		.addEventListener('submit',
-//				function(event) {
-//
-//					const commentDetailsInput = document
-//							.getElementById('leaveCommentBox').value;
-//					const userHandleInput = document
-//							.getElementById('userHandle').value;
-//
-//					if (commentDetailsInput == "" || userHandleInput == "") {
-//						event.preventDefault();
-//						modalBox = document.getElementById('modalBox');
-//
-//						// alert("Please enter a User Handle and Leave Comment
-//						// to submit a Comment");
-//						modalBox.style.display = "block"
-//						const modalCloseButton = document.getElementsByClassName("close")[0];
-//						modalCloseButton.addEventListener("click", function() {
-//							modalBox.style.display = "none";
-//						})
-//						return false;
-//					}
-//
-//				})

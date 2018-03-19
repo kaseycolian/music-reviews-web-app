@@ -1,3 +1,4 @@
+//creates modal box when a comment field is left blank
 const commentBox = document.getElementById('newCommentForm');
 commentBox
 		.addEventListener('submit',
