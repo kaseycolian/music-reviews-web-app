@@ -28,7 +28,7 @@
 	/* 		display: flex; */
 	/* /* 		grid-template-columns: 1fr 1fr; */
 	* /
-		/* 	} */            
+		/* 	} */             
 	header {
 		font-size: 2rem;
 		flex-wrap: wrap;
@@ -197,6 +197,7 @@ ul {
 
 ul li {
 	display: inline;
+	margin-left: .45rem;
 }
 
 footer {

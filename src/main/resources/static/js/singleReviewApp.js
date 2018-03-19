@@ -20,7 +20,12 @@ commentBox
 						modalCloseButton.addEventListener("click", function() {
 							modalBox.style.display = "none";
 						})
+						
 						return false;
 					}
+
+				})
+				
+
 
 				})

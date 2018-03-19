@@ -25,12 +25,12 @@ public class ReviewPopulator implements CommandLineRunner {
 		
 		
 
-		Tag tagRelax = tagRepo.save(new Tag("Relaxing"));
-		Tag tagAdven = tagRepo.save(new Tag("Adventerous"));
-		Tag tagDrone = tagRepo.save(new Tag("Drone"));
-		Tag tagMusic = tagRepo.save(new Tag("Music"));
-		Tag tagExperimental = tagRepo.save(new Tag("Experimental"));
-		Tag tagIdm = tagRepo.save(new Tag("IDM"));
+		Tag tagRelax = tagRepo.save(new Tag("relaxing"));
+		Tag tagAdven = tagRepo.save(new Tag("adventerous"));
+		Tag tagDrone = tagRepo.save(new Tag("drone"));
+		Tag tagMusic = tagRepo.save(new Tag("music"));
+		Tag tagExperimental = tagRepo.save(new Tag("experimental"));
+		Tag tagIdm = tagRepo.save(new Tag("idm"));
 
 		Category idm = categoryRepo.save(new Category("IDM"));
 		Category drone = categoryRepo.save(new Category("Drone"));

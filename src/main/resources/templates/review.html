@@ -91,14 +91,14 @@
 								</form>
 							</div>
 							<div class="deleteTagForm">
-								<form id="deleteTagForm" method="POST">
+								<form id="deleteTagForm" method="POST" >
 									<label>Remove Tag:</label><input id="removeTagId" type="hidden"
 										th:value="${review.id}" name="reviewId" /><input
 										id="removeTagDescriptionId" placeholder="Remove Tag..." type="text"
 										name="tagDeleteDescription" />
 
 									<div>
-										<button id='removeTag' th:formaction="@{/remove-tag}">Remove
+										<button id='removeTag' th:formaction="@{/remove-tag}"  >Remove
 											Tag</button>
 									</div>
 								</form>
