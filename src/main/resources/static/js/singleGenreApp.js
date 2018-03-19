@@ -5,10 +5,6 @@ h1.addEventListener('mouseover', function() {
 	h1.style.color = '#CBD534';
 	// h1.style.backgroundImage=('url(/images/stars.png)');
 })
-//add Ajax to this function to get res.category.id
-h1.addEventListener('mouseout', function() {
-					h1.innerHTML = '&tagDescription=';
-})
 
 const bandTiles = document.querySelectorAll('ul li');
 const bandImages = document.querySelectorAll('ul li img');

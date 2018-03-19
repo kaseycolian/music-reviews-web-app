@@ -53,7 +53,7 @@ public class ReviewsFullController {
 		Review newReview = reviewRepo.findOne(reviewId);
 		// if review isn't null & tag description isn't null
 		if (newReview != null && tagDescription != null) {
-			Tag existingTag = tagRepo.findByTagDescription(tagDescription);
+			Tag existingTag = tagRepo.findByTagDescription(tagDescription.toLowerCase());
 			// if existingTag isn't in tag repo, save as newtag and add to review.
 			if (existingTag == null) {
 				Tag newTag = new Tag(tagDescription, newReview);
@@ -81,6 +81,7 @@ public class ReviewsFullController {
 		Review newReview = reviewRepo.findOne(reviewId);
 		if (newReview != null && tagDescription != null) {
 			Tag tagToDelete = tagRepo.findByTagDescription(tagDescription);
+			Long tagToDeleteId = tagToDelete.getId();
 			if (tagToDelete != null) {
 				// going through each tag in the review's collection of tags. matching the tag
 				// description and removing it
@@ -94,6 +95,9 @@ public class ReviewsFullController {
 
 				}
 				reviewRepo.save(newReview);
+			}
+			if (tagToDelete.getReview().size() == 0) {
+				tagRepo.delete(tagToDeleteId);
 			}
 			model.addAttribute("review", newReview);
 		}
@@ -116,12 +120,6 @@ public class ReviewsFullController {
 		return "category";
 
 	}
-	//
-	// @RequestMapping("tags")
-	// public String getAllTags(Model model) {
-	// model.addAttribute("tags", tagRepo.findAll());
-	// return "tags";
-	// }
 
 	@RequestMapping("tag")
 	public String getATag(@RequestParam Long id, Model model) {
