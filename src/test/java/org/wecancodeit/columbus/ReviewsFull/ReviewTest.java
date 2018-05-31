@@ -9,6 +9,10 @@ import java.util.Collection;
 import javax.annotation.Resource;
 
 import org.junit.Test;
+import org.wecancodeit.columbus.reviews.data.Category;
+import org.wecancodeit.columbus.reviews.data.Review;
+import org.wecancodeit.columbus.reviews.data.Tag;
+import org.wecancodeit.columbus.reviews.data.TagRepository;
 
 public class ReviewTest {
 	@Resource

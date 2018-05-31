@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 //import java.util.Collection;
 
 import org.junit.Test;
+import org.wecancodeit.columbus.reviews.data.Category;
 
 public class CategoryTest {
 

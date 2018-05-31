@@ -1,27 +1,24 @@
-package org.wecancodeit.columbus.ReviewsFull;
-
-import static java.util.Arrays.asList;
+package org.wecancodeit.columbus.reviews.data;
 
 import java.util.Collection;
-import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Tag {
+public class Category {
 
 	@Id
 	@GeneratedValue
 	private long id;
-	private String tagDescription;
+	private String category;
 
-	@ManyToMany(mappedBy = "tags")
+	@OneToMany(mappedBy = "category")
 	private Collection<Review> reviews;
 
-	public Collection<Review> getReview() {
+	public Collection<Review> getReviews() {
 		return reviews;
 	}
 
@@ -29,18 +26,22 @@ public class Tag {
 		return id;
 	}
 
-	public String getTag() {
-		return tagDescription;
+	@Override
+	public String toString() {
+		return category;
 	}
 
-	// test for Review...reviews
-	public Tag(String tagDescription, Review... reviews) {
-		this.tagDescription = tagDescription;
-		this.reviews = new HashSet<>(asList(reviews));
+	public Category(String category) {
+		this.category = category;
+	}
+
+	public String getCategory() {
+		return category;
 	}
 
 	@SuppressWarnings("unused")
-	private Tag() {
+	private Category() {
+
 	}
 
 	@Override
@@ -53,10 +54,12 @@ public class Tag {
 		if (this == obj) {
 			return true;
 		}
+
 		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
-		return id == ((Tag) obj).id;
+
+		return id == ((Category) obj).id;
 	}
 
 }

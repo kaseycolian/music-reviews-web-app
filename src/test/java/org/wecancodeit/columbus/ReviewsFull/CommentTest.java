@@ -4,6 +4,10 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+import org.wecancodeit.columbus.reviews.data.Category;
+import org.wecancodeit.columbus.reviews.data.Comment;
+import org.wecancodeit.columbus.reviews.data.Review;
+import org.wecancodeit.columbus.reviews.data.Tag;
 
 public class CommentTest {
 	Tag testTag = new Tag("");

@@ -1,4 +1,4 @@
-package org.wecancodeit.columbus.ReviewsFull;
+package org.wecancodeit.columbus.reviews.data;
 
 import org.springframework.data.repository.CrudRepository;
 

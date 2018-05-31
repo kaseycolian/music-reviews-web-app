@@ -1,4 +1,4 @@
-package org.wecancodeit.columbus.ReviewsFull;
+package org.wecancodeit.columbus.reviews;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

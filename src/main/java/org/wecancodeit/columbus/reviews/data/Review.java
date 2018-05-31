@@ -1,4 +1,4 @@
-package org.wecancodeit.columbus.ReviewsFull;
+package org.wecancodeit.columbus.reviews.data;
 
 import java.util.Collection;
 import java.util.HashSet;

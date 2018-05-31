@@ -1,27 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Krona+One');
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1000px) {
+	section{
+		margin-left: 5rem;
+	}
+}
+
+@media only screen and (max-width: 800px) {
 	*{
-	max-height: 100vw;
-	max-width: 100vw;
-	font-size: 50%;
+/*	max-height: 100vw;
+	max-width: 100vw;*/
+	/*font-size: 50%;*/
 	
 	}
-	.container{
-	grid-template-rows: 13 rem 1fr;
-	grid-auto-flow: column;
+	body{
+/*	grid-template-rows: 13 rem 1fr;
+	grid-auto-flow: column;*/
 	}
-	
+	section{
+		margin-left: 0;
+	}
 	header {
 		display: flex;
 		flex-wrap: wrap;
 		/* 		justify-content: center; */
 		/* 		align-items: center; */}
-
-/* 	div::after { */
-/* 		background-size: 100vw, 100vh; */
-/* 	} */
 }
+
 
 * {
 	max-width: 100vw;
@@ -49,10 +54,10 @@ a:hover {
 	font-style: italic;
 }
 
-.container {
+body {
 	display: grid;
-	grid-template-rows: 16rem 1fr;
-	height: 100vh;
+	grid-template-rows: 16rem auto;
+	/*height: 100vh;*/
 	grid-gap: 1rem;
 }
 
@@ -64,11 +69,12 @@ header:hover {
 header {
 	display: flex;
 	justify-content: center;
+	text-align: center;
 	align-items: center;
 	-webkit-text-stroke: 0;
 }
 
-div::after {
+body::after {
 	content: "";
 	opacity: .55;
 	background-image: url(/images/keys2.jpg);
@@ -111,4 +117,7 @@ li {
 	margin-bottom: 1rem;
 	font-weight: bold;
 	margin-bottom: 1rem;
+}
+li:hover{
+	transform: scale(1.5);
 }

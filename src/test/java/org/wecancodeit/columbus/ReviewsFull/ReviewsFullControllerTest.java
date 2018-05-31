@@ -9,6 +9,15 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ui.Model;
+import org.wecancodeit.columbus.reviews.data.Category;
+import org.wecancodeit.columbus.reviews.data.CategoryRepository;
+import org.wecancodeit.columbus.reviews.data.Comment;
+import org.wecancodeit.columbus.reviews.data.CommentRepository;
+import org.wecancodeit.columbus.reviews.data.Review;
+import org.wecancodeit.columbus.reviews.data.ReviewsFullController;
+import org.wecancodeit.columbus.reviews.data.ReviewsRepository;
+import org.wecancodeit.columbus.reviews.data.Tag;
+import org.wecancodeit.columbus.reviews.data.TagRepository;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

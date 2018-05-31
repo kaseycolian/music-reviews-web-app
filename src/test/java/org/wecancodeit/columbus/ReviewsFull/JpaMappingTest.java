@@ -15,6 +15,14 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.wecancodeit.columbus.reviews.data.Category;
+import org.wecancodeit.columbus.reviews.data.CategoryRepository;
+import org.wecancodeit.columbus.reviews.data.Comment;
+import org.wecancodeit.columbus.reviews.data.CommentRepository;
+import org.wecancodeit.columbus.reviews.data.Review;
+import org.wecancodeit.columbus.reviews.data.ReviewsRepository;
+import org.wecancodeit.columbus.reviews.data.Tag;
+import org.wecancodeit.columbus.reviews.data.TagRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest

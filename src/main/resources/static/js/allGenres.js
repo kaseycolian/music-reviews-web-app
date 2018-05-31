@@ -11,12 +11,12 @@ h1.addEventListener('mouseout', function() {
 	// h1.style.backgroundImage=('none');
 })
 
-const listItems = document.querySelectorAll('ul li');
-listItems.forEach(function(listItem) {
-	listItem.addEventListener('mouseout', function() {
-		this.style.fontSize = '2.5rem';
-	})
-})
+// const listItems = document.querySelectorAll('ul li');
+// listItems.forEach(function(listItem) {
+// 	listItem.addEventListener('mouseout', function() {
+// 		this.style.fontSize = '2.5rem';
+// 	})
+// })
 
 const backgroundSection = document.querySelector('.container')
 const genresTitle = document.querySelector('h2')

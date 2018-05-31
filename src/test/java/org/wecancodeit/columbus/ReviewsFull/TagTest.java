@@ -5,6 +5,10 @@ import static org.junit.Assert.assertThat;
 import javax.annotation.Resource;
 
 import org.junit.Test;
+import org.wecancodeit.columbus.reviews.data.Category;
+import org.wecancodeit.columbus.reviews.data.Review;
+import org.wecancodeit.columbus.reviews.data.ReviewsRepository;
+import org.wecancodeit.columbus.reviews.data.Tag;
 
 public class TagTest {
 
